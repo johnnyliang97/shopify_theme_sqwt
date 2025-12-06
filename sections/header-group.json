@@ -1,1 +1,85 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_JXwgFp":{"type":"announcement","settings":{"text":"USE CODE NEW15 FOR 15% OFF","link":""}},"announcement_6peRGK":{"type":"announcement","settings":{"text":"FREE SHIPPING OVER $100","link":""}},"announcement-bar-0":{"type":"announcement","settings":{"text":"FOLLOW @SQWT.OFFICIAL","link":"https:\/\/www.instagram.com\/sqwt.official\/"}}},"block_order":["announcement_JXwgFp","announcement_6peRGK","announcement-bar-0"],"settings":{"auto_rotate":true,"change_slides_speed":5,"color_scheme":"inverse","show_line_separator":false,"show_social":false,"enable_country_selector":false,"enable_language_selector":false}},"header":{"type":"header","custom_css":[],"settings":{"logo_position":"middle-center","mobile_logo_position":"center","menu":"main-menu","menu_type_desktop":"mega","sticky_header_type":"reduce-logo-size","show_line_separator":true,"color_scheme":"background-1","menu_color_scheme":"background-1","enable_country_selector":true,"enable_language_selector":false,"enable_customer_avatar":true,"margin_bottom":0,"padding_top":4,"padding_bottom":4}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_JXwgFp": {
+          "type": "announcement",
+          "settings": {
+            "text": "USE CODE NEW15 FOR 15% OFF",
+            "link": ""
+          }
+        },
+        "announcement_6peRGK": {
+          "type": "announcement",
+          "settings": {
+            "text": "FREE SHIPPING OVER $100",
+            "link": ""
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "FOLLOW @SQWT.OFFICIAL",
+            "link": "https://www.instagram.com/sqwt.official/"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_JXwgFp",
+        "announcement_6peRGK",
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "display_style": "marquee",
+        "marquee_speed": 40,
+        "marquee_gap": 64,
+        "marquee_repeat": 2,
+        "marquee_hover_pause": true,
+        "marquee_enable_animation": true,
+        "auto_rotate": true,
+        "change_slides_speed": 6,
+        "color_scheme": "background-1",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "middle-center",
+        "mobile_logo_position": "center",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "reduce-logo-size",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "menu_color_scheme": "background-1",
+        "enable_country_selector": true,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
