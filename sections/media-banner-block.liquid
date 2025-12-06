@@ -64,7 +64,7 @@
   }
 {%- endstyle -%}
 
-{%- liquid -%}
+{% liquid
   assign container_class = ''
   case section.settings.container
     when 'page'
@@ -74,7 +74,7 @@
     else
       assign container_class = ''
   endcase
-{%- endliquid -%}
+%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding media-banner-{{ section.id }}">
