@@ -1,5 +1,14 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+.announcement_bar__marquee { --gap: 24px; --marquee-duration: 20s; display: flex; max-width: 100%; overflow: hidden; position: relative; user-select: none; }
+.announcement_bar__marquee .marquee__content { align-items: center; column-gap: var(--gap); display: flex; flex-shrink: 0; justify-content: space-around; letter-spacing: var(--letter-spacing-small); min-width: 100%; }
+.announcement_bar__marquee .marquee__item { display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(var(--marquee-translate)); } }
+.announcement_bar__marquee.enable-animation .marquee__content { --marquee-translate: -100%; animation: marquee linear infinite; animation-duration: var(--marquee-duration); }
+[dir=rtl] .announcement_bar__marquee.enable-animation .marquee__content { --marquee-translate: 100%; }
+.announcement_bar__marquee.marquee--hover-pause:hover .marquee__content { animation-play-state: paused; }
+{%- endstyle -%}
 
 {%- liquid
   assign social_icons = true
@@ -25,7 +34,30 @@
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
     {%- endif -%}
-    {%- if section.blocks.size == 1 -%}
+    {%- if section.settings.display_style == 'marquee' and section.blocks.size > 0 -%}
+      <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}">
+        <div
+          class="announcement_bar__marquee marquee{% if section.settings.marquee_hover_pause %} marquee--hover-pause{% endif %}{% if section.settings.marquee_enable_animation %} enable-animation{% endif %}"
+          style="--marquee-duration: {{ section.settings.marquee_speed }}s; --gap: {{ section.settings.marquee_gap }}px;"
+        >
+          <div class="marquee__content">
+            {%- for i in (1..section.settings.marquee_repeat) -%}
+              {%- for block in section.blocks -%}
+                {%- if block.settings.text != blank -%}
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset">
+                      <span class="marquee__item announcement-bar__message h5">{{ block.settings.text | escape }}</span>
+                    </a>
+                  {%- else -%}
+                    <span class="marquee__item announcement-bar__message h5">{{ block.settings.text | escape }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    {%- elsif section.blocks.size == 1 -%}
       <div
         class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
         role="region"
@@ -171,6 +203,57 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "display_style",
+      "label": "Display style",
+      "options": [
+        { "value": "slider", "label": "Slider" },
+        { "value": "marquee", "label": "Marquee (looping)" }
+      ],
+      "default": "marquee"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Marquee speed",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "marquee_gap",
+      "min": 0,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "Marquee item gap",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "marquee_repeat",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "label": "Marquee repeat count",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "marquee_hover_pause",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "marquee_enable_animation",
+      "label": "Enable animation",
+      "default": true
+    },
     {
       "type": "checkbox",
       "id": "auto_rotate",
