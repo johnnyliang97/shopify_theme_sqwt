@@ -168,7 +168,7 @@
         "button_link": "shopify://collections/linea-collection",
         "bg_video": "shopify://files/videos/IMG_0827.mov",
         "overlay_color": "#000000",
-        "overlay_opacity": 30,
+        "overlay_opacity": 50,
         "mobile_ratio": "4/5",
         "desktop_ratio": "16/9",
         "color_scheme": "",
