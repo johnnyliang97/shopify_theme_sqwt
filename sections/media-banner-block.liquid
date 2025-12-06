@@ -95,6 +95,10 @@
     border-radius: {{ section.settings.button_border_radius | default: 4 }}px;
     padding: {{ section.settings.button_padding_vertical | default: 12 }}px {{ section.settings.button_padding_horizontal | default: 24 }}px;
     transition: all 0.2s ease;
+    position: relative;
+    z-index: 3;
+    pointer-events: auto;
+    display: inline-block;
   }
 
   .mbb-button-{{ section.id }}:hover {
@@ -140,11 +144,7 @@
           {%- endif -%}
           {%- if section.settings.button_label != blank -%}
             <a
-              {%- if section.settings.button_link == blank -%}
-                role="link" aria-disabled="true"
-              {%- else -%}
-                href="{{ section.settings.button_link }}"
-              {%- endif -%}
+              href="{{ section.settings.button_link | default: '#' }}"
               class="button{% if section.settings.button_style == 'secondary' %} button--secondary{% else %} button--primary{% endif %} mbb-button-{{ section.id }}"
             >
               {{- section.settings.button_label | escape -}}
