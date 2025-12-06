@@ -262,6 +262,7 @@
 
   <div class="ai-shop-look-carousel-{{ ai_gen_id }}">
     <div class="ai-shop-look-slides-{{ ai_gen_id }}" data-slides>
+      {% assign rendered = false %}
       {% for block in section.blocks %}
         {% if block.settings.enabled %}
         <div class="ai-shop-look-slide-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
@@ -356,8 +357,19 @@
             {% endfor %}
           </div>
         </div>
+        {% assign rendered = true %}
         {% endif %}
       {% endfor %}
+      {% if rendered == false %}
+        <div class="ai-shop-look-slide-{{ ai_gen_id }}">
+          <div class="ai-shop-look-image-wrapper-{{ ai_gen_id }}">
+            <div class="ai-shop-look-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-shop-look-empty-state-{{ ai_gen_id }}">Add a slide block</div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 
@@ -396,7 +408,6 @@
       this.hotspots = this.querySelectorAll('.ai-shop-look-hotspot-{{ ai_gen_id }}');
 
       this.setupEventListeners();
-      this.updateCSSVars();
       this.updateCarousel();
       this.setupHotspots();
       this.setupTouchEvents();
@@ -408,7 +419,6 @@
       window.addEventListener('resize', () => {
         this.isDesktop = window.innerWidth >= 750;
         this.slidesToShow = this.isDesktop ? Math.min(this.desktopColumns, this.totalSlides) : 1;
-        this.updateCSSVars();
         this.updateCarousel();
       });
     }
@@ -418,40 +428,20 @@
       let startY = 0;
       let isDragging = false;
       if (!this.slides) return;
-      // Touch
       this.slides.addEventListener('touchstart', (e) => {
+        if (this.isDesktop) return;
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
         isDragging = true;
       });
       this.slides.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
+        if (!isDragging || this.isDesktop) return;
         e.preventDefault();
       });
       this.slides.addEventListener('touchend', (e) => {
-        if (!isDragging) return;
+        if (!isDragging || this.isDesktop) return;
         const endX = e.changedTouches[0].clientX;
         const endY = e.changedTouches[0].clientY;
-        const diffX = startX - endX;
-        const diffY = startY - endY;
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-          if (diffX > 0) { this.nextSlide(); } else { this.previousSlide(); }
-        }
-        isDragging = false;
-      });
-      // Mouse (desktop) drag
-      this.slides.addEventListener('mousedown', (e) => {
-        startX = e.clientX;
-        startY = e.clientY;
-        isDragging = true;
-      });
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-      });
-      window.addEventListener('mouseup', (e) => {
-        if (!isDragging) return;
-        const endX = e.clientX;
-        const endY = e.clientY;
         const diffX = startX - endX;
         const diffY = startY - endY;
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
@@ -485,32 +475,19 @@
       });
     }
 
-    closeAllPopups() { this.querySelectorAll('.ai-shop-look-popup-{{ ai_gen_id }}').forEach((popup) => { popup.classList.remove('active'); popup.parentElement.querySelector('.ai-shop-look-hotspot-button-{{ ai_gen_id }}').setAttribute('aria-expanded', 'false'); }); }
-    previousSlide() {
-      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
-      this.currentSlide = Math.max(0, this.currentSlide - 1);
-      this.updateCarousel();
-    }
-    nextSlide() {
-      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
-      this.currentSlide = Math.min(maxIndex, this.currentSlide + 1);
-      this.updateCarousel();
-    }
-    goToSlide(index) { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
+    closeAllPopups() { this.querySelectorAll('.ai-shop-look-popup-{{ ai_gen_id }}').forEach((popup) => { popup.classList.remove('active'); const btn = popup.parentElement.querySelector('.ai-shop-look-hotspot-button-{{ ai_gen_id }}'); if (btn) btn.setAttribute('aria-expanded', 'false'); }); }
+    getMaxIndex() { const pages = Math.max(1, Math.ceil(this.totalSlides / this.slidesToShow)); return pages - 1; }
+    previousSlide() { if (this.currentSlide > 0) { this.currentSlide -= 1; } this.updateCarousel(); }
+    nextSlide() { const maxIndex = this.getMaxIndex(); if (this.currentSlide < maxIndex) { this.currentSlide += 1; } this.updateCarousel(); }
+    goToSlide(index) { const maxIndex = this.getMaxIndex(); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
     updateCarousel() {
       if (!this.slides) return;
-      const perStep = this.isDesktop
-        ? (100 * this.slidesToShow) / this.totalSlides
-        : 100 / this.totalSlides;
+      const perStep = this.isDesktop ? (100 * this.slidesToShow) / this.totalSlides : 100 / this.totalSlides;
       const translateX = -(this.currentSlide * perStep);
       this.slides.style.transform = `translateX(${translateX}%)`;
-      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
+      const maxIndex = this.getMaxIndex();
       if (this.prevButton) this.prevButton.disabled = this.currentSlide === 0;
       if (this.nextButton) this.nextButton.disabled = this.currentSlide >= maxIndex;
-    }
-    updateCSSVars() {
-      this.style.setProperty('--slides-to-show-desktop', this.slidesToShow);
-      this.style.setProperty('--total-slides', this.totalSlides);
     }
     });
   }
