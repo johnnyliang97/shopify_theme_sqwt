@@ -72,6 +72,31 @@
   @media screen and (min-width: 750px) {
     .mbb-ratio-{{ section.id }} { aspect-ratio: {{ section.settings.desktop_ratio }}; }
   }
+
+  .mbb-heading {
+    font-size: {{ section.settings.heading_size | default: 32 }}px;
+    color: {{ section.settings.heading_color | default: '#ffffff' }};
+  }
+
+  .mbb-subheading {
+    font-size: {{ section.settings.subheading_size | default: 16 }}px;
+    color: {{ section.settings.subheading_color | default: '#ffffff' }};
+    opacity: 0.9;
+  }
+
+  .mbb-button-{{ section.id }} {
+    font-size: {{ section.settings.button_font_size | default: 16 }}px;
+    background-color: {{ section.settings.button_bg_color | default: '#ffffff' }};
+    color: {{ section.settings.button_text_color | default: '#000000' }};
+    border-radius: {{ section.settings.button_border_radius | default: 4 }}px;
+    padding: {{ section.settings.button_padding_vertical | default: 12 }}px {{ section.settings.button_padding_horizontal | default: 24 }}px;
+    transition: all 0.2s ease;
+  }
+
+  .mbb-button-{{ section.id }}:hover {
+    background-color: {{ section.settings.button_hover_bg_color | default: '#f0f0f0' }};
+    color: {{ section.settings.button_hover_text_color | default: '#000000' }};
+  }
 {%- endstyle -%}
 
 {% liquid
@@ -116,7 +141,7 @@
               {%- else -%}
                 href="{{ section.settings.button_link }}"
               {%- endif -%}
-              class="button button--primary"
+              class="button{% if section.settings.button_style == 'secondary' %} button--secondary{% else %} button--primary{% endif %} mbb-button-{{ section.id }}"
             >
               {{- section.settings.button_label | escape -}}
             </a>
@@ -141,8 +166,23 @@
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading" },
     { "type": "text", "id": "subheading", "label": "Subheading" },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "heading_size", "min": 14, "max": 72, "step": 1, "unit": "px", "label": "Heading size", "default": 32 },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#ffffff" },
+    { "type": "range", "id": "subheading_size", "min": 12, "max": 36, "step": 1, "unit": "px", "label": "Subheading size", "default": 16 },
+    { "type": "color", "id": "subheading_color", "label": "Subheading color", "default": "#ffffff" },
     { "type": "text", "id": "button_label", "label": "Button label" },
     { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Button styles" },
+    { "type": "select", "id": "button_style", "label": "Button style", "options": [ { "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" } ], "default": "primary" },
+    { "type": "range", "id": "button_font_size", "min": 12, "max": 24, "step": 1, "unit": "px", "label": "Button font size", "default": 16 },
+    { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#000000" },
+    { "type": "color", "id": "button_bg_color", "label": "Button background color", "default": "#ffffff" },
+    { "type": "color", "id": "button_hover_bg_color", "label": "Button hover background", "default": "#f0f0f0" },
+    { "type": "color", "id": "button_hover_text_color", "label": "Button hover text color", "default": "#000000" },
+    { "type": "range", "id": "button_border_radius", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Button border radius", "default": 4 },
+    { "type": "range", "id": "button_padding_vertical", "min": 8, "max": 24, "step": 1, "unit": "px", "label": "Button vertical padding", "default": 12 },
+    { "type": "range", "id": "button_padding_horizontal", "min": 16, "max": 48, "step": 2, "unit": "px", "label": "Button horizontal padding", "default": 24 },
     { "type": "video", "id": "bg_video", "label": "Background video" },
     { "type": "image_picker", "id": "bg_image", "label": "Background image" },
     { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000" },
