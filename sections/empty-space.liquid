@@ -1,0 +1,52 @@
+{%- style -%}
+  .empty-space-{{ section.id }} {
+    height: {{ section.settings.mobile_spacing }}px;
+    width: 100%;
+    display: block;
+  }
+
+  @media screen and (min-width: 750px) {
+    .empty-space-{{ section.id }} {
+      height: {{ section.settings.desktop_spacing }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="empty-space-{{ section.id }}" aria-hidden="true"></div>
+
+{% schema %}
+{
+  "name": "Empty space",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "mobile_spacing",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile spacing",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "desktop_spacing",
+      "min": 0,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop spacing",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Empty space"
+    }
+  ]
+}
+{% endschema %}
+
