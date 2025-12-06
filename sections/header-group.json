@@ -43,9 +43,9 @@
       ],
       "settings": {
         "display_style": "marquee",
-        "marquee_speed": 40,
+        "marquee_speed": 60,
         "marquee_gap": 64,
-        "marquee_repeat": 2,
+        "marquee_repeat": 8,
         "marquee_hover_pause": true,
         "marquee_enable_animation": true,
         "auto_rotate": true,
