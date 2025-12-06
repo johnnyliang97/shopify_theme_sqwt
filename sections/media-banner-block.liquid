@@ -25,6 +25,7 @@
   .mbb-media-{{ section.id }} {
     position: absolute;
     inset: 0;
+    z-index: 0;
   }
 
   .mbb-media-{{ section.id }} img,
@@ -39,6 +40,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 1;
   }
 
   .mbb-content-{{ section.id }} {
@@ -51,6 +53,7 @@
     text-align: center;
     gap: 0.75rem;
     padding: 1.5rem;
+    z-index: 2;
   }
 
   {%- for block in section.blocks -%}
@@ -65,9 +68,21 @@
   {%- endfor -%}
 {%- endstyle -%}
 
+{%- liquid -%}
+  assign container_class = ''
+  case section.settings.container
+    when 'page'
+      assign container_class = 'page-width'
+    when 'narrow'
+      assign container_class = 'page-width page-width--narrow'
+    else
+      assign container_class = ''
+  endcase
+{%- endliquid -%}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="section-{{ section.id }}-padding media-banner-{{ section.id }}">
-    <div class="page-width">
+    <div class="{{ container_class }}">
       {%- for block in section.blocks -%}
         <div class="mbb-block-{{ section.id }} mbb-ratio-{{ block.id }}" {{ block.shopify_attributes }}>
           <div class="mbb-media-{{ section.id }}">
@@ -125,6 +140,21 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "full", "label": "Full width" },
+        { "value": "page", "label": "Page width" },
+        { "value": "narrow", "label": "Narrow" }
+      ],
+      "default": "page"
     },
     {
       "type": "header",
