@@ -44,6 +44,83 @@
       "name": "Mega Image",
       "settings": {}
     },
+    "featured_collection_TJVaQG": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".slider-counter,.icon-wrap {display: none;}",
+        ".button {border-radius: 0;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "new-arrivals",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "swt_duo_image_banner_6xNqQD": {
+      "type": "swt-duo-image-banner",
+      "blocks": {
+        "tile_eLzmMC": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_39PM.jpg",
+            "heading": "SIGNATURE SILHOUETTES",
+            "heading_size": "h1",
+            "badge_text": "Special Discount",
+            "button_label": "Shop Styles",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "content_padding_x": 20,
+            "content_padding_y": 20
+          }
+        },
+        "tile_yaXwax": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0125.jpg",
+            "heading": "SIGNATURE SILHOUETTES",
+            "heading_size": "h1",
+            "badge_text": "Special Discount",
+            "button_label": "Shop Styles",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "content_padding_x": 20,
+            "content_padding_y": 20
+          }
+        }
+      },
+      "block_order": [
+        "tile_eLzmMC",
+        "tile_yaXwax"
+      ],
+      "name": "Duo Image Banner",
+      "settings": {
+        "image_height": "medium",
+        "overlay_color": "#8bb9d9",
+        "overlay_opacity": 30,
+        "text_color": "#ffffff"
+      }
+    },
     "collection_list_9VQxNQ": {
       "type": "collection-list",
       "blocks": {
@@ -123,39 +200,6 @@
         "image_behavior": "none",
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
-      }
-    },
-    "featured_collection_TJVaQG": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".slider-counter,.icon-wrap {display: none;}",
-        ".button {border-radius: 0;}"
-      ],
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "collection": "new-arrivals",
-        "products_to_show": 4,
-        "title": "NEW ARRIVALS",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "background-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "media_banner_block_aaNfRC": {
@@ -435,9 +479,10 @@
   },
   "order": [
     "175828229230ffa141",
+    "featured_collection_TJVaQG",
+    "swt_duo_image_banner_6xNqQD",
     "collection_list_9VQxNQ",
     "slideshow_ieznDB",
-    "featured_collection_TJVaQG",
     "media_banner_block_aaNfRC",
     "empty_space_rYGi6N",
     "ai_shop_look_MmFdVG",
