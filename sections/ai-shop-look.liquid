@@ -396,6 +396,7 @@
       this.hotspots = this.querySelectorAll('.ai-shop-look-hotspot-{{ ai_gen_id }}');
 
       this.setupEventListeners();
+      this.updateCSSVars();
       this.updateCarousel();
       this.setupHotspots();
       this.setupTouchEvents();
@@ -407,6 +408,7 @@
       window.addEventListener('resize', () => {
         this.isDesktop = window.innerWidth >= 750;
         this.slidesToShow = this.isDesktop ? Math.min(this.desktopColumns, this.totalSlides) : 1;
+        this.updateCSSVars();
         this.updateCarousel();
       });
     }
@@ -416,20 +418,40 @@
       let startY = 0;
       let isDragging = false;
       if (!this.slides) return;
+      // Touch
       this.slides.addEventListener('touchstart', (e) => {
-        if (this.isDesktop) return;
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
         isDragging = true;
       });
       this.slides.addEventListener('touchmove', (e) => {
-        if (!isDragging || this.isDesktop) return;
+        if (!isDragging) return;
         e.preventDefault();
       });
       this.slides.addEventListener('touchend', (e) => {
-        if (!isDragging || this.isDesktop) return;
+        if (!isDragging) return;
         const endX = e.changedTouches[0].clientX;
         const endY = e.changedTouches[0].clientY;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+          if (diffX > 0) { this.nextSlide(); } else { this.previousSlide(); }
+        }
+        isDragging = false;
+      });
+      // Mouse (desktop) drag
+      this.slides.addEventListener('mousedown', (e) => {
+        startX = e.clientX;
+        startY = e.clientY;
+        isDragging = true;
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+      });
+      window.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        const endX = e.clientX;
+        const endY = e.clientY;
         const diffX = startX - endX;
         const diffY = startY - endY;
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
@@ -464,8 +486,16 @@
     }
 
     closeAllPopups() { this.querySelectorAll('.ai-shop-look-popup-{{ ai_gen_id }}').forEach((popup) => { popup.classList.remove('active'); popup.parentElement.querySelector('.ai-shop-look-hotspot-button-{{ ai_gen_id }}').setAttribute('aria-expanded', 'false'); }); }
-    previousSlide() { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = this.currentSlide === 0 ? maxIndex : this.currentSlide - 1; this.updateCarousel(); }
-    nextSlide() { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = this.currentSlide >= maxIndex ? 0 : this.currentSlide + 1; this.updateCarousel(); }
+    previousSlide() {
+      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
+      this.currentSlide = Math.max(0, this.currentSlide - 1);
+      this.updateCarousel();
+    }
+    nextSlide() {
+      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
+      this.currentSlide = Math.min(maxIndex, this.currentSlide + 1);
+      this.updateCarousel();
+    }
     goToSlide(index) { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
     updateCarousel() {
       if (!this.slides) return;
@@ -474,8 +504,13 @@
         : 100 / this.totalSlides;
       const translateX = -(this.currentSlide * perStep);
       this.slides.style.transform = `translateX(${translateX}%)`;
-      if (this.prevButton) this.prevButton.disabled = false;
-      if (this.nextButton) this.nextButton.disabled = false;
+      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
+      if (this.prevButton) this.prevButton.disabled = this.currentSlide === 0;
+      if (this.nextButton) this.nextButton.disabled = this.currentSlide >= maxIndex;
+    }
+    updateCSSVars() {
+      this.style.setProperty('--slides-to-show-desktop', this.slidesToShow);
+      this.style.setProperty('--total-slides', this.totalSlides);
     }
     });
   }
