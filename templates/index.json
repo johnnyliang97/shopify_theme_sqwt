@@ -160,28 +160,19 @@
     },
     "media_banner_block_aaNfRC": {
       "type": "media-banner-block",
-      "blocks": {
-        "banner_nUPANR": {
-          "type": "banner",
-          "settings": {
-            "heading": "",
-            "subheading": "",
-            "button_label": "",
-            "button_link": "",
-            "bg_image": "shopify://shop_images/815A777D-FA0A-43A6-BAEF-1E6CB71147E3.jpg",
-            "overlay_color": "#663e3e",
-            "overlay_opacity": 50,
-            "mobile_ratio": "16/9",
-            "desktop_ratio": "16/9"
-          }
-        }
-      },
-      "block_order": [
-        "banner_nUPANR"
-      ],
       "name": "Media banner block",
       "settings": {
+        "heading": "FOR ALL OCCASIONS",
+        "subheading": "The Linea Collection",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/linea-collection",
+        "bg_video": "shopify://files/videos/IMG_0827.mov",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "mobile_ratio": "4/5",
+        "desktop_ratio": "16/9",
         "color_scheme": "",
+        "container": "full",
         "padding_top": 40,
         "padding_bottom": 40
       }
