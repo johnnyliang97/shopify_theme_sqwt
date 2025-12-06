@@ -175,10 +175,73 @@
             "hotspot_2_y": 74,
             "hotspot_2_product": "serenity-v-shape-shorts"
           }
+        },
+        "slide_xLGhLV": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/IMG_1853.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 53,
+            "hotspot_1_y": 35,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 62,
+            "hotspot_2_y": 70,
+            "hotspot_2_product": "linea-lift-leggings"
+          }
+        },
+        "slide_9qEGzR": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_14PM_6d60186a-1cf3-49f1-ae23-6fcffef91ef2.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 65,
+            "hotspot_1_y": 23,
+            "hotspot_1_product": "cross-back-sports-bra-1",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 43,
+            "hotspot_2_y": 70,
+            "hotspot_2_product": "high-waisted-butt-lifting-leggings"
+          }
+        },
+        "slide_Gd8DK9": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_22PM.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 30,
+            "hotspot_1_y": 54,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 56,
+            "hotspot_2_y": 84,
+            "hotspot_2_product": "linea-lift-leggings"
+          }
+        },
+        "slide_K6rNdx": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 30,
+            "hotspot_1_y": 40,
+            "hotspot_1_product": "",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 70,
+            "hotspot_2_y": 60,
+            "hotspot_2_product": ""
+          }
         }
       },
       "block_order": [
-        "slide_H48w4h"
+        "slide_H48w4h",
+        "slide_xLGhLV",
+        "slide_9qEGzR",
+        "slide_Gd8DK9",
+        "slide_K6rNdx"
       ],
       "name": "Shop this look",
       "settings": {
