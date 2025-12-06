@@ -42,6 +42,7 @@
     gap: 14px;
     color: {{ section.settings.text_color }};
     padding: 20px;
+    margin: var(--pad-y, 0px) var(--pad-x, 0px);
     text-shadow: 0 0 1px rgba(0,0,0,.12);
   }
   #SWTDuoBanner-{{ section.id }} .swt-heading {
@@ -62,7 +63,7 @@
   }
   #SWTDuoBanner-{{ section.id }} .swt-badge {
     display: inline-block;
-    background: color-mix(in oklab, {{ section.settings.text_color }} 20%, transparent);
+    background: rgba(255,255,255,.2);
     color: {{ section.settings.text_color }};
     padding: 8px 12px;
     border-radius: 6px;
@@ -192,4 +193,3 @@
   ]
 }
 {% endschema %}
-
