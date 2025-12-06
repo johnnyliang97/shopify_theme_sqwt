@@ -378,7 +378,8 @@
 
 <script>
 (function() {
-  customElements.define('shop-look-carousel-{{ ai_gen_id }}', class extends HTMLElement {
+  if (!customElements.get('shop-look-carousel-{{ ai_gen_id }}')) {
+    customElements.define('shop-look-carousel-{{ ai_gen_id }}', class extends HTMLElement {
     constructor() {
       super();
       this.currentSlide = 0;
@@ -468,12 +469,16 @@
     goToSlide(index) { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
     updateCarousel() {
       if (!this.slides) return;
-      const translateX = -(this.currentSlide * (100 / this.totalSlides));
+      const perStep = this.isDesktop
+        ? (100 * this.slidesToShow) / this.totalSlides
+        : 100 / this.totalSlides;
+      const translateX = -(this.currentSlide * perStep);
       this.slides.style.transform = `translateX(${translateX}%)`;
       if (this.prevButton) this.prevButton.disabled = false;
       if (this.nextButton) this.nextButton.disabled = false;
     }
-  });
+    });
+  }
 })();
 </script>
 
