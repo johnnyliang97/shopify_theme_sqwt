@@ -1507,6 +1507,7 @@ a.product__text {
     pointer-events: none;
     padding: 0 0.5rem;
     height: 0;
+    z-index: 3;
   }
 
   .product__media-wrapper .product__media-list + .slider-buttons .slider-counter {
@@ -1544,4 +1545,9 @@ a.product__text {
     visibility: hidden;
     pointer-events: none;
   }
+}
+
+/* Hide magnifying glass icon for lightbox zoom */
+.product__media-icon--lightbox {
+  display: none;
 }
