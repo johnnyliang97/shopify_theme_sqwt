@@ -45,6 +45,16 @@
     opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   }
 
+  .mbb-block-{{ section.id }}::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+
   .mbb-content-{{ section.id }} {
     position: absolute;
     inset: 0;
@@ -90,7 +100,7 @@
           {%- endif -%}
         </div>
 
-        <div class="mbb-overlay-{{ section.id }}"></div>
+        
 
         <div class="mbb-content-{{ section.id }}">
           {%- if section.settings.heading != blank -%}
