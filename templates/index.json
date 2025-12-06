@@ -158,6 +158,14 @@
         "padding_bottom": 36
       }
     },
+    "empty_space_rYGi6N": {
+      "type": "empty-space",
+      "name": "Empty space",
+      "settings": {
+        "mobile_spacing": 24,
+        "desktop_spacing": 48
+      }
+    },
     "ai_shop_look_MmFdVG": {
       "type": "ai-shop-look",
       "blocks": {
@@ -382,6 +390,7 @@
     "collection_list_9VQxNQ",
     "slideshow_ieznDB",
     "featured_collection_TJVaQG",
+    "empty_space_rYGi6N",
     "ai_shop_look_MmFdVG",
     "multicolumn_KefN34",
     "1764240122aac3d8db"
