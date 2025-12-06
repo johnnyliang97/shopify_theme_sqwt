@@ -30,7 +30,7 @@
     // Hide all images, thumbnails, grid items, and pagination dots
     mediaItems.forEach(mediaItem => {
       mediaItem.classList.add('hidden');
-      const parentSlide = mediaItem.closest('slideshow-slide');
+      const parentSlide = mediaItem.closest('slideshow-slide, .slider__slide, .product__media-item');
       if (parentSlide) parentSlide.classList.add('hidden');
     });
     thumbnailButtons.forEach(button => button.classList.add('hidden'));
@@ -45,7 +45,7 @@
           const altText = img.alt.toLowerCase().replace(/\s+/g, '');
           if (altText.includes(normalizedSelectedColor)) {
             mediaItem.classList.remove('hidden');
-            const parentSlide = mediaItem.closest('slideshow-slide');
+            const parentSlide = mediaItem.closest('slideshow-slide, .slider__slide, .product__media-item');
             if (parentSlide) {
               parentSlide.classList.remove('hidden');
               parentSlide.style.display = 'block'; // Ensure display is set
@@ -110,8 +110,15 @@
     }
 
     // Refresh sliders/galleries
+    const sliderComponents = Array.from(mediaGallery.querySelectorAll('slider-component'));
+    sliderComponents.forEach(component => {
+      if (typeof component.resetPages === 'function') component.resetPages();
+      else if (typeof component.initPages === 'function') component.initPages();
+      else if (typeof component.update === 'function') component.update();
+    });
     sliders.forEach(slider => {
-      if (typeof slider.update === 'function') slider.update();
+      if (typeof slider.resetPages === 'function') slider.resetPages();
+      else if (typeof slider.update === 'function') slider.update();
       else if (typeof slider.initPages === 'function') slider.initPages();
       else if (typeof slider.reset === 'function') slider.reset();
       else if (typeof window.Swiper !== 'undefined' && slider.swiper) {
@@ -121,6 +128,20 @@
         window.dispatchEvent(new Event('resize'));
       }
     });
+    const gallerySlider = mediaGallery.querySelector('[id^="Slider-Gallery"]');
+    if (gallerySlider && gallerySlider.scrollTo) gallerySlider.scrollTo({ left: 0 });
+
+    const visibleSlides = Array.from(mediaGallery.querySelectorAll('.slider__slide, .product__media-item'))
+      .filter(slide => !slide.classList.contains('hidden'));
+    const controls = mediaGallery.querySelector('.slider-buttons');
+    if (controls) {
+      const prev = controls.querySelector('button[name="previous"]');
+      const next = controls.querySelector('button[name="next"]');
+      if (prev && next && visibleSlides.length <= 1) {
+        prev.setAttribute('disabled', 'disabled');
+        next.setAttribute('disabled', 'disabled');
+      }
+    }
 
     // Mark gallery as initialized to apply CSS display rules
     if (mediaGallery) {
