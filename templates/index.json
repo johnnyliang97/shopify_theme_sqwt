@@ -225,14 +225,45 @@
           "type": "slide",
           "settings": {
             "enabled": true,
+            "image": "shopify://shop_images/WhatsApp_Image_2025-11-27_at_17.38.30.jpg",
             "hotspot_1_enabled": true,
-            "hotspot_1_x": 30,
-            "hotspot_1_y": 40,
-            "hotspot_1_product": "",
-            "hotspot_2_enabled": true,
+            "hotspot_1_x": 25,
+            "hotspot_1_y": 63,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": false,
             "hotspot_2_x": 70,
             "hotspot_2_y": 60,
             "hotspot_2_product": ""
+          }
+        },
+        "slide_CLmgah": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/WhatsApp_Image_2025-11-27_at_17.39.29.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 40,
+            "hotspot_1_y": 30,
+            "hotspot_1_product": "cross-back-sports-bra-1",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 36,
+            "hotspot_2_y": 66,
+            "hotspot_2_product": "high-waisted-butt-lifting-leggings"
+          }
+        },
+        "slide_bm93zf": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/IMG_5786.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 32,
+            "hotspot_1_y": 40,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 55,
+            "hotspot_2_y": 60,
+            "hotspot_2_product": "linea-lift-leggings"
           }
         }
       },
@@ -241,7 +272,9 @@
         "slide_xLGhLV",
         "slide_9qEGzR",
         "slide_Gd8DK9",
-        "slide_K6rNdx"
+        "slide_K6rNdx",
+        "slide_CLmgah",
+        "slide_bm93zf"
       ],
       "name": "Shop this look",
       "settings": {
