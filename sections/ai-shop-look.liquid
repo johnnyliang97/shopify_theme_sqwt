@@ -378,7 +378,7 @@
 
 <script>
 (function() {
-  class ShopLookCarousel{{ ai_gen_id }} extends HTMLElement {
+  customElements.define('shop-look-carousel-{{ ai_gen_id }}', class extends HTMLElement {
     constructor() {
       super();
       this.currentSlide = 0;
@@ -401,8 +401,8 @@
     }
 
     setupEventListeners() {
-      this.prevButton.addEventListener('click', () => this.previousSlide());
-      this.nextButton.addEventListener('click', () => this.nextSlide());
+      if (this.prevButton) this.prevButton.addEventListener('click', () => this.previousSlide());
+      if (this.nextButton) this.nextButton.addEventListener('click', () => this.nextSlide());
       window.addEventListener('resize', () => {
         this.isDesktop = window.innerWidth >= 750;
         this.slidesToShow = this.isDesktop ? Math.min(this.desktopColumns, this.totalSlides) : 1;
@@ -414,6 +414,7 @@
       let startX = 0;
       let startY = 0;
       let isDragging = false;
+      if (!this.slides) return;
       this.slides.addEventListener('touchstart', (e) => {
         if (this.isDesktop) return;
         startX = e.touches[0].clientX;
@@ -465,9 +466,14 @@
     previousSlide() { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = this.currentSlide === 0 ? maxIndex : this.currentSlide - 1; this.updateCarousel(); }
     nextSlide() { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = this.currentSlide >= maxIndex ? 0 : this.currentSlide + 1; this.updateCarousel(); }
     goToSlide(index) { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
-    updateCarousel() { const translateX = -(this.currentSlide * (100 / this.totalSlides)); this.slides.style.transform = `translateX(${translateX}%)`; this.prevButton.disabled = false; this.nextButton.disabled = false; }
-  }
-  customElements.define('shop-look-carousel-{{ ai_gen_id }}', ShopLookCarousel{{ ai_gen_id }});
+    updateCarousel() {
+      if (!this.slides) return;
+      const translateX = -(this.currentSlide * (100 / this.totalSlides));
+      this.slides.style.transform = `translateX(${translateX}%)`;
+      if (this.prevButton) this.prevButton.disabled = false;
+      if (this.nextButton) this.nextButton.disabled = false;
+    }
+  });
 })();
 </script>
 
