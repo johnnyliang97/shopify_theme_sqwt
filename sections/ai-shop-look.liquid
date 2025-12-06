@@ -38,7 +38,6 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: {{ section.settings.image_border_radius }}px;
   }
 
   .ai-shop-look-slides-{{ ai_gen_id }} {
@@ -501,9 +500,10 @@
       { "value": "1/1", "label": "Square (1:1)" },
       { "value": "3/4", "label": "Portrait (3:4)" },
       { "value": "4/3", "label": "Landscape (4:3)" },
+      { "value": "4/5", "label": "Portrait (4:5)" },
       { "value": "16/9", "label": "Wide (16:9)" }
     ], "default": "3/4" },
-    { "type": "range", "id": "image_border_radius", "min": 0, "max": 24, "step": 2, "unit": "px", "label": "Image border radius", "default": 8 },
+    
     { "type": "header", "content": "Typography" },
     { "type": "range", "id": "title_size", "min": 16, "max": 48, "step": 2, "unit": "px", "label": "Title size", "default": 20 },
     { "type": "range", "id": "subtitle_size", "min": 12, "max": 24, "step": 1, "unit": "px", "label": "Subtitle size", "default": 12 },
