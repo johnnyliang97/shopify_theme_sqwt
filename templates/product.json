@@ -77,7 +77,7 @@
         "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "media_position": "left",
-        "image_zoom": "none",
+        "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": true,
         "padding_top": 36,
