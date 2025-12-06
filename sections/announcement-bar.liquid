@@ -8,6 +8,8 @@
 .announcement_bar__marquee.enable-animation .marquee__content { --marquee-translate: -100%; animation: marquee linear infinite; animation-duration: var(--marquee-duration); }
 [dir=rtl] .announcement_bar__marquee.enable-animation .marquee__content { --marquee-translate: 100%; }
 .announcement_bar__marquee.marquee--hover-pause:hover .marquee__content { animation-play-state: paused; }
+.announcement-bar { font-size: {{ section.settings.marquee_font_size | default: 12 }}px; letter-spacing: {{ section.settings.marquee_letter_spacing | default: 1 }}px; text-transform: {{ section.settings.marquee_text_transform | default: 'uppercase' }}; font-weight: {% if section.settings.marquee_font_weight == 'bold' %}700{% elsif section.settings.marquee_font_weight == 'medium' %}500{% else %}400{% endif %}; }
+.announcement-bar .announcement-bar__message { font-size: {{ section.settings.marquee_font_size | default: 12 }}px; letter-spacing: {{ section.settings.marquee_letter_spacing | default: 1 }}px; text-transform: {{ section.settings.marquee_text_transform | default: 'uppercase' }}; font-weight: {% if section.settings.marquee_font_weight == 'bold' %}700{% elsif section.settings.marquee_font_weight == 'medium' %}500{% else %}400{% endif %}; }
 {%- endstyle -%}
 
 {%- liquid
@@ -21,6 +23,15 @@
   if section.blocks.size > 0
     assign announcement_bar = true
   endif
+  assign container_class = ''
+  case section.settings.container
+    when 'page'
+      assign container_class = 'page-width'
+    when 'narrow'
+      assign container_class = 'page-width page-width--narrow'
+    else
+      assign container_class = ''
+  endcase
 -%}
 
 {% if social_icons %}
@@ -30,7 +41,7 @@
 <div
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
 >
-  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
+  <div class="{{ container_class }} utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
     {%- endif -%}
@@ -214,6 +225,52 @@
       "default": "marquee"
     },
     {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "marquee_font_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "marquee_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "marquee_text_transform",
+      "label": "Text transform",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "select",
+      "id": "marquee_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "bold", "label": "Bold" }
+      ],
+      "default": "normal"
+    },
+    {
       "type": "range",
       "id": "marquee_speed",
       "min": 5,
@@ -276,6 +333,17 @@
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
     },  
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "full", "label": "Full width" },
+        { "value": "page", "label": "Page width" },
+        { "value": "narrow", "label": "Narrow" }
+      ],
+      "default": "page"
+    },
     {
       "type": "checkbox",
       "id": "show_line_separator",
