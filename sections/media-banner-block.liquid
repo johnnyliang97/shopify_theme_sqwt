@@ -64,9 +64,9 @@
     inset: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: {% if section.settings.content_alignment == 'left' %}flex-start{% elsif section.settings.content_alignment == 'right' %}flex-end{% else %}center{% endif %};
+    justify-content: {% if section.settings.content_vertical == 'top' %}flex-start{% elsif section.settings.content_vertical == 'bottom' %}flex-end{% else %}center{% endif %};
+    text-align: {% if section.settings.content_alignment == 'left' %}left{% elsif section.settings.content_alignment == 'right' %}right{% else %}center{% endif %};
     gap: 0;
     padding: 1.5rem;
     z-index: 2;
@@ -104,7 +104,7 @@
     pointer-events: auto;
     display: inline-block;
     --buttons-border-width: 0;
-    border: {{ section.settings.button_outline_width | default: 0 }}px solid {{ section.settings.button_outline_color | default: '#000000' }};
+    border: {{ section.settings.button_outline_width | default: 0 }}px {{ section.settings.button_outline_style | default: 'solid' }} {{ section.settings.button_outline_color | default: '#000000' }};
   }
 
   .mbb-button-{{ section.id }}:hover {
@@ -184,6 +184,9 @@
     { "type": "color", "id": "subheading_color", "label": "Subheading color", "default": "#ffffff" },
     { "type": "range", "id": "spacing_heading_subheading", "min": 0, "max": 48, "step": 1, "unit": "px", "label": "Spacing: heading → subheading", "default": 12 },
     { "type": "range", "id": "spacing_subheading_button", "min": 0, "max": 48, "step": 1, "unit": "px", "label": "Spacing: subheading → button", "default": 16 },
+    { "type": "header", "content": "Content position" },
+    { "type": "select", "id": "content_alignment", "label": "Horizontal alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center" },
+    { "type": "select", "id": "content_vertical", "label": "Vertical position", "options": [ { "value": "top", "label": "Top" }, { "value": "middle", "label": "Middle" }, { "value": "bottom", "label": "Bottom" } ], "default": "middle" },
     { "type": "text", "id": "button_label", "label": "Button label" },
     { "type": "url", "id": "button_link", "label": "Button link" },
     { "type": "header", "content": "Button styles" },
@@ -200,6 +203,7 @@
     { "type": "color", "id": "button_outline_color", "label": "Outline color", "default": "#000000" },
     { "type": "color", "id": "button_outline_hover_color", "label": "Outline hover color", "default": "#000000" },
     { "type": "range", "id": "button_outline_width", "min": 0, "max": 8, "step": 1, "unit": "px", "label": "Outline width", "default": 0 },
+    { "type": "select", "id": "button_outline_style", "label": "Outline style", "options": [ { "value": "solid", "label": "Solid" }, { "value": "dashed", "label": "Dashed" }, { "value": "dotted", "label": "Dotted" } ], "default": "solid" },
     { "type": "video", "id": "bg_video", "label": "Background video" },
     { "type": "image_picker", "id": "bg_image", "label": "Background image" },
     { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#000000" },
