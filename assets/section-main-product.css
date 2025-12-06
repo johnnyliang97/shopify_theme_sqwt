@@ -1547,7 +1547,10 @@ a.product__text {
   }
 }
 
-/* Hide magnifying glass icon for lightbox zoom */
 .product__media-icon--lightbox {
   display: none;
+}
+
+.product__media .image-magnify-lightbox {
+  pointer-events: none;
 }

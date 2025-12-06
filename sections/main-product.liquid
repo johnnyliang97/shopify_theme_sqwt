@@ -965,6 +965,28 @@
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+      <script>
+        (function(){
+          function bind(sectionId){
+            var gallery = document.getElementById('GalleryViewer-' + sectionId);
+            if(!gallery) return;
+            var nodes = gallery.querySelectorAll('.product__modal-opener .product__media');
+            nodes.forEach(function(media){
+              if(media.dataset.lbBound==='true') return;
+              var toggle = media.closest('.product__modal-opener')?.querySelector('.product__media-toggle');
+              if(!toggle) return;
+              media.dataset.lbBound='true';
+              media.setAttribute('tabindex','0');
+              media.addEventListener('click', function(){ toggle.click(); });
+              media.addEventListener('keydown', function(e){
+                if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toggle.click(); }
+              });
+            });
+          }
+          document.addEventListener('DOMContentLoaded', function(){ bind('{{ section.id }}'); });
+          document.body.addEventListener('product-info:loaded', function(){ bind('{{ section.id }}'); });
+        })();
+      </script>
     {%- endif -%}
 
     {%- if first_3d_model -%}
