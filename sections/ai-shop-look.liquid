@@ -1,5 +1,14 @@
 {% liquid
   assign ai_gen_id = section.id | replace: '_' , '' | downcase
+  assign container_class = ''
+  case section.settings.container
+    when 'page'
+      assign container_class = 'page-width'
+    when 'narrow'
+      assign container_class = 'page-width page-width--narrow'
+    else
+      assign container_class = ''
+  endcase
 %}
 {% style %}
   .ai-shop-look-{{ ai_gen_id }} {
@@ -233,6 +242,7 @@
   endif
 %}
 
+<div class="{{ container_class }}">
 <shop-look-carousel-{{ ai_gen_id }}
   class="ai-shop-look-{{ ai_gen_id }}"
   {{ section.shopify_attributes }}
@@ -365,6 +375,7 @@
     </button>
   </div>
 </shop-look-carousel-{{ ai_gen_id }}>
+</div>
 
 <script>
 (function() {
@@ -477,6 +488,11 @@
       { "value": "right", "label": "Right" }
     ], "default": "center" },
     { "type": "header", "content": "Layout" },
+    { "type": "select", "id": "container", "label": "Container width", "options": [
+      { "value": "full", "label": "Full width" },
+      { "value": "page", "label": "Page width" },
+      { "value": "narrow", "label": "Narrow" }
+    ], "default": "page" },
     { "type": "select", "id": "desktop_columns", "label": "Desktop columns", "options": [
       { "value": "1", "label": "1" }, { "value": "2", "label": "2" }, { "value": "3", "label": "3" }
     ], "default": "3" },
@@ -530,4 +546,3 @@
   "presets": [ { "name": "Shop this look" } ]
 }
 {% endschema %}
-
