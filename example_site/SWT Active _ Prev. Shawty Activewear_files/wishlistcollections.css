@@ -1,0 +1,8 @@
+.swym-wishlist-collections-v2-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 5;
+    cursor: pointer;
+}

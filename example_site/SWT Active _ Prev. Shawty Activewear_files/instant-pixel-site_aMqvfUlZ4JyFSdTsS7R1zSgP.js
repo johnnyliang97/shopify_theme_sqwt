@@ -1,0 +1,1 @@
+console.log('❗❗ Instant is disabled on this site. Please contact Instant support if this is unexpected. ❗❗');
