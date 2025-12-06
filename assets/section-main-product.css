@@ -669,6 +669,15 @@ a.product__text {
   }
 }
 
+@media screen and (max-width: 749px) {
+  .product-media-modal__content img.global-media-settings--no-shadow {
+    width: 100% !important;
+    height: auto !important;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+}
+
 .product-media-modal__content > * {
   display: block;
   height: auto;
