@@ -37,7 +37,7 @@
   .ai-shop-look-carousel-{{ ai_gen_id }} {
     position: relative;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .ai-shop-look-slides-{{ ai_gen_id }} {
@@ -423,11 +423,11 @@
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
         isDragging = true;
-      });
+      }, { passive: true });
       this.slides.addEventListener('touchmove', (e) => {
         if (!isDragging || this.isDesktop) return;
         e.preventDefault();
-      });
+      }, { passive: false });
       this.slides.addEventListener('touchend', (e) => {
         if (!isDragging || this.isDesktop) return;
         const endX = e.changedTouches[0].clientX;
@@ -438,7 +438,8 @@
           if (diffX > 0) { this.nextSlide(); } else { this.previousSlide(); }
         }
         isDragging = false;
-      });
+      }, { passive: true });
+      this.slides.addEventListener('touchcancel', () => { isDragging = false; }, { passive: true });
     }
 
     setupHotspots() {
