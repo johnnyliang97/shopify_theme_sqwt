@@ -262,7 +262,6 @@
 
   <div class="ai-shop-look-carousel-{{ ai_gen_id }}">
     <div class="ai-shop-look-slides-{{ ai_gen_id }}" data-slides>
-      {% assign rendered = false %}
       {% for block in section.blocks %}
         {% if block.settings.enabled %}
         <div class="ai-shop-look-slide-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
@@ -357,19 +356,8 @@
             {% endfor %}
           </div>
         </div>
-        {% assign rendered = true %}
         {% endif %}
       {% endfor %}
-      {% if rendered == false %}
-        <div class="ai-shop-look-slide-{{ ai_gen_id }}">
-          <div class="ai-shop-look-image-wrapper-{{ ai_gen_id }}">
-            <div class="ai-shop-look-placeholder-{{ ai_gen_id }}">
-              {{ 'image' | placeholder_svg_tag }}
-              <div class="ai-shop-look-empty-state-{{ ai_gen_id }}">Add a slide block</div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
     </div>
   </div>
 
@@ -419,6 +407,8 @@
       window.addEventListener('resize', () => {
         this.isDesktop = window.innerWidth >= 750;
         this.slidesToShow = this.isDesktop ? Math.min(this.desktopColumns, this.totalSlides) : 1;
+        const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
+        if (this.currentSlide > maxIndex) this.currentSlide = maxIndex;
         this.updateCarousel();
       });
     }
@@ -476,16 +466,15 @@
     }
 
     closeAllPopups() { this.querySelectorAll('.ai-shop-look-popup-{{ ai_gen_id }}').forEach((popup) => { popup.classList.remove('active'); const btn = popup.parentElement.querySelector('.ai-shop-look-hotspot-button-{{ ai_gen_id }}'); if (btn) btn.setAttribute('aria-expanded', 'false'); }); }
-    getMaxIndex() { const pages = Math.max(1, Math.ceil(this.totalSlides / this.slidesToShow)); return pages - 1; }
-    previousSlide() { if (this.currentSlide > 0) { this.currentSlide -= 1; } this.updateCarousel(); }
-    nextSlide() { const maxIndex = this.getMaxIndex(); if (this.currentSlide < maxIndex) { this.currentSlide += 1; } this.updateCarousel(); }
-    goToSlide(index) { const maxIndex = this.getMaxIndex(); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
+    previousSlide() { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); if (this.currentSlide > 0) { this.currentSlide -= 1; this.updateCarousel(); } }
+    nextSlide() { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); if (this.currentSlide < maxIndex) { this.currentSlide += 1; this.updateCarousel(); } }
+    goToSlide(index) { const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow); this.currentSlide = Math.max(0, Math.min(index, maxIndex)); this.updateCarousel(); }
     updateCarousel() {
       if (!this.slides) return;
-      const perStep = this.isDesktop ? (100 * this.slidesToShow) / this.totalSlides : 100 / this.totalSlides;
+      const perStep = 100 / this.totalSlides;
       const translateX = -(this.currentSlide * perStep);
       this.slides.style.transform = `translateX(${translateX}%)`;
-      const maxIndex = this.getMaxIndex();
+      const maxIndex = Math.max(0, this.totalSlides - this.slidesToShow);
       if (this.prevButton) this.prevButton.disabled = this.currentSlide === 0;
       if (this.nextButton) this.nextButton.disabled = this.currentSlide >= maxIndex;
     }
