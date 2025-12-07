@@ -67,6 +67,36 @@
                     </li>
                   {%- endfor -%}
                 </ul>
+                {%- assign has_promos = false -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'mega_promo' and block.settings.parent != blank and block.settings.parent | downcase == link.title | downcase -%}
+                    {%- assign has_promos = true -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if has_promos -%}
+                  <div class="mega-menu__promo page-width">
+                    {%- for block in section.blocks -%}
+                      {%- if block.type == 'mega_promo' and block.settings.parent != blank and block.settings.parent | downcase == link.title | downcase -%}
+                        {%- if block.settings.link != blank -%}
+                          <a href="{{ block.settings.link }}" class="mega-menu__promo-item">
+                        {%- else -%}
+                          <div class="mega-menu__promo-item">
+                        {%- endif -%}
+                          {%- if block.settings.image != blank -%}
+                            {{ block.settings.image | image_url: width: 800 | image_tag: class: 'mega-menu__promo-image', loading: 'lazy', widths: '400,800,1200', alt: block.settings.title | escape }}
+                          {%- endif -%}
+                          {%- if block.settings.title != blank -%}
+                            <div class="mega-menu__promo-title">{{ block.settings.title | escape }}</div>
+                          {%- endif -%}
+                        {%- if block.settings.link != blank -%}
+                          </a>
+                        {%- else -%}
+                          </div>
+                        {%- endif -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
               </div>
             </details>
           </header-menu>

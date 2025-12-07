@@ -86,6 +86,30 @@
   font-weight: normal;
 }
 
+.mega-menu__promo {
+  display: grid;
+  gap: 1.8rem 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2.4rem;
+}
+
+.mega-menu__promo-item {
+  display: block;
+  text-decoration: none;
+}
+
+.mega-menu__promo-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--media-radius);
+}
+
+.mega-menu__promo-title {
+  margin-top: 0.8rem;
+  color: rgb(var(--color-foreground));
+}
+
 @media screen and (min-width: 990px) {
   .header__inline-menu summary .icon-caret {
     display: none;
