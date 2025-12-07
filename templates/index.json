@@ -513,8 +513,8 @@
         "tile_qdUP9b": {
           "type": "tile",
           "settings": {
-            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_22PM.jpg",
-            "heading": "GIFT CARDS",
+            "image": "shopify://shop_images/giftcard.jpg",
+            "heading": "GIFT CARD",
             "heading_size": "h2",
             "badge_text": "",
             "button_label": "Shop now",
