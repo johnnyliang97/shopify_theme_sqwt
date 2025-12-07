@@ -557,37 +557,48 @@
         "desktop_ratio": "4/5"
       }
     },
-    "multicolumn_KefN34": {
-      "type": "multicolumn",
+    "promo_blocks_eXLJi3": {
+      "type": "promo-blocks",
       "blocks": {
-        "column_f4yjXk": {
-          "type": "column",
+        "promo_item_TPt66K": {
+          "type": "promo_item",
           "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
+            "heading": "EASY RETURNS",
+            "subtext": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE",
+            "link": ""
+          }
+        },
+        "promo_item_rtMmGy": {
+          "type": "promo_item",
+          "settings": {
+            "heading": "HIGH QUALITY",
+            "subtext": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE",
+            "link": ""
+          }
+        },
+        "promo_item_NVHWiF": {
+          "type": "promo_item",
+          "settings": {
+            "heading": "FAST SHIPPING",
+            "subtext": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_f4yjXk"
+        "promo_item_TPt66K",
+        "promo_item_rtMmGy",
+        "promo_item_NVHWiF"
       ],
+      "name": "Promo blocks",
       "settings": {
-        "title": "Our minimalist activewear combines effortless style with unparalleled comfort for every movement.",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "portrait",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 1,
-        "column_alignment": "left",
-        "background_style": "none",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 76
+        "color_scheme": "",
+        "container": "page",
+        "marquee_speed": 20,
+        "marquee_gap": 24,
+        "marquee_repeat": 6,
+        "marquee_hover_pause": true,
+        "marquee_enable_animation": true
       }
     },
     "1764240122aac3d8db": {
@@ -646,7 +657,7 @@
     "empty_space_kTVF8M",
     "featured_collection_K4wUjJ",
     "swt_duo_image_banner_kdePbH",
-    "multicolumn_KefN34",
+    "promo_blocks_eXLJi3",
     "1764240122aac3d8db"
   ]
 }
