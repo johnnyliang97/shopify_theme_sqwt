@@ -36,6 +36,13 @@ class HeaderMenu extends DetailsDisclosure {
   constructor() {
     super();
     this.header = document.querySelector('.header-wrapper');
+    this.summary = this.mainDetailsToggle.querySelector('summary');
+    this.mql = window.matchMedia('(min-width: 990px)');
+    this.enterHandler = this.onMouseEnter.bind(this);
+    this.leaveHandler = this.onMouseLeave.bind(this);
+    this.mediaChangeHandler = this.onMediaChange.bind(this);
+    this.onMediaChange();
+    this.mql.addEventListener('change', this.mediaChangeHandler);
   }
 
   onToggle() {
@@ -47,6 +54,27 @@ class HeaderMenu extends DetailsDisclosure {
       '--header-bottom-position-desktop',
       `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
     );
+  }
+
+  onMouseEnter() {
+    if (!this.mql.matches) return;
+    this.mainDetailsToggle.setAttribute('open', '');
+    this.summary.setAttribute('aria-expanded', true);
+  }
+
+  onMouseLeave() {
+    if (!this.mql.matches) return;
+    this.close();
+  }
+
+  onMediaChange() {
+    if (this.mql.matches) {
+      this.addEventListener('mouseenter', this.enterHandler);
+      this.addEventListener('mouseleave', this.leaveHandler);
+    } else {
+      this.removeEventListener('mouseenter', this.enterHandler);
+      this.removeEventListener('mouseleave', this.leaveHandler);
+    }
   }
 }
 

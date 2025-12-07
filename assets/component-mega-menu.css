@@ -91,6 +91,14 @@
     display: none;
   }
 
+  .header__inline-menu summary.list-menu__item {
+    padding-right: 0;
+  }
+
+  .header__inline-menu .list-menu--inline {
+    column-gap: 2.4rem;
+  }
+
   .js .mega-menu:hover .mega-menu__content,
   .mega-menu:hover .mega-menu__content {
     opacity: 1;
