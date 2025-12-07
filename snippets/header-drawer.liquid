@@ -110,6 +110,13 @@
                                           </li>
                                         {%- endfor -%}
                                       </ul>
+                                      </ul>
+                                    </div>
+                                  </details>
+                                {%- endif -%}
+                              </li>
+                            {%- endfor -%}
+                          </ul>
                           {%- assign has_promos = false -%}
                           {%- assign link_key = link.title | strip | downcase -%}
                           {%- for block in section.blocks -%}
@@ -147,12 +154,6 @@
                               {%- endfor -%}
                             </div>
                           {%- endif -%}
-                                    </div>
-                                  </details>
-                                {%- endif -%}
-                              </li>
-                            {%- endfor -%}
-                          </ul>
                         </div>
                       </div>
                     </details>
