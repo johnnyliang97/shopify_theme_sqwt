@@ -74,10 +74,20 @@
             "title": "Linea Collection",
             "link": "shopify://collections/linea-collection"
           }
+        },
+        "mega_promo_mmVBAp": {
+          "type": "mega_promo",
+          "settings": {
+            "parent": "Bottoms",
+            "image": "shopify://shop_images/IMG_1505.png",
+            "title": "Shorts",
+            "link": "shopify://collections/shorts"
+          }
         }
       },
       "block_order": [
-        "mega_promo_j6RfLi"
+        "mega_promo_j6RfLi",
+        "mega_promo_mmVBAp"
       ],
       "custom_css": [],
       "settings": {
