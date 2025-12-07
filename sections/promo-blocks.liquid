@@ -1,0 +1,98 @@
+{{ 'section-promo-blocks.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign container_class = ''
+  case section.settings.container
+    when 'page'
+      assign container_class = 'page-width'
+    when 'narrow'
+      assign container_class = 'page-width page-width--narrow'
+    else
+      assign container_class = ''
+  endcase
+-%}
+
+<div class="promo-blocks color-{{ section.settings.color_scheme }} gradient">
+  <div class="{{ container_class }}">
+    <div class="promo-blocks__grid small-hide medium-hide" style="--block-count: {{ section.blocks.size }};">
+      {%- for block in section.blocks -%}
+        <div class="promo-blocks__item" {{ block.shopify_attributes }}>
+          <div class="promo-blocks__content">
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="promo-blocks__link link link--text focus-inset">
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <p class="promo-blocks__title h4">{{ block.settings.heading | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.subtext != blank -%}
+              <p class="promo-blocks__text caption-with-letter-spacing">{{ block.settings.subtext | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="promo-blocks__marquee large-up-hide" role="region" aria-label="Promo blocks">
+      <div
+        class="promo-blocks__marquee-inner marquee{% if section.settings.marquee_hover_pause %} marquee--hover-pause{% endif %}{% if section.settings.marquee_enable_animation %} enable-animation{% endif %}"
+        style="--marquee-duration: {{ section.settings.marquee_speed }}s; --gap: {{ section.settings.marquee_gap }}px;"
+      >
+        <div class="marquee__content">
+          {%- for i in (1..section.settings.marquee_repeat) -%}
+            {%- for block in section.blocks -%}
+              {%- if block.settings.heading != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="promo-blocks__link link link--text focus-inset">
+                    <span class="marquee__item h5">{{ block.settings.heading | escape }}</span>
+                  </a>
+                {%- else -%}
+                  <span class="marquee__item h5">{{ block.settings.heading | escape }}</span>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promo blocks",
+  "class": "promo-blocks-section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Colors", "default": "scheme-4" },
+    { "type": "select", "id": "container", "label": "Container width", "options": [
+      { "value": "full", "label": "Full width" },
+      { "value": "page", "label": "Page width" },
+      { "value": "narrow", "label": "Narrow" }
+    ], "default": "page" },
+
+    { "type": "header", "content": "Mobile marquee" },
+    { "type": "range", "id": "marquee_speed", "min": 5, "max": 60, "step": 1, "unit": "s", "label": "Marquee speed", "default": 20 },
+    { "type": "range", "id": "marquee_gap", "min": 0, "max": 128, "step": 2, "unit": "px", "label": "Marquee gap", "default": 24 },
+    { "type": "range", "id": "marquee_repeat", "min": 2, "max": 10, "step": 1, "label": "Marquee repeat count", "default": 6 },
+    { "type": "checkbox", "id": "marquee_hover_pause", "label": "Pause on hover", "default": true },
+    { "type": "checkbox", "id": "marquee_enable_animation", "label": "Enable animation", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "promo_item",
+      "name": "Promo item",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Title", "default": "EASY RETURNS AND EXCHANGES" },
+        { "type": "text", "id": "subtext", "label": "Subtitle", "default": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Promo blocks", "blocks": [ { "type": "promo_item" }, { "type": "promo_item" }, { "type": "promo_item" } ] }
+  ]
+}
+{% endschema %}
+
