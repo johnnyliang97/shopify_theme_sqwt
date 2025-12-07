@@ -88,9 +88,9 @@
 
 .mega-menu__promo {
   display: grid;
-  gap: 1.8rem 2rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 2.4rem;
+  gap: 1.6rem;
+  grid-template-columns: 1fr;
+  margin-top: 0;
 }
 
 .mega-menu__promo-item {
@@ -100,7 +100,7 @@
 
 .mega-menu__promo-image {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--media-radius);
 }
@@ -108,6 +108,15 @@
 .mega-menu__promo-title {
   margin-top: 0.8rem;
   color: rgb(var(--color-foreground));
+}
+
+@media screen and (min-width: 990px) {
+  .mega-menu__layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
 }
 
 @media screen and (min-width: 990px) {
