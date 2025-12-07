@@ -54,7 +54,7 @@
       "settings": {
         "collection": "new-arrivals",
         "products_to_show": 4,
-        "title": "",
+        "title": "NEW ARRIVALS",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
