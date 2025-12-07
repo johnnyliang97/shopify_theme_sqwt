@@ -594,7 +594,12 @@
       "settings": {
         "color_scheme": "",
         "container_desktop": "page",
-        "container_mobile": "page",
+        "container_mobile": "full",
+        "margin_top": 64,
+        "margin_bottom": 64,
+        "title_font_size": 16,
+        "subtitle_font_size": 14,
+        "mobile_item_max_width": 250,
         "marquee_speed": 60,
         "marquee_gap": 128,
         "marquee_repeat": 3,
