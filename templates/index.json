@@ -115,9 +115,9 @@
       ],
       "name": "Duo Image Banner",
       "settings": {
-        "image_height": "medium",
+        "image_height": "small",
         "overlay_color": "#8bb9d9",
-        "overlay_opacity": 30,
+        "overlay_opacity": 0,
         "text_color": "#ffffff"
       }
     },

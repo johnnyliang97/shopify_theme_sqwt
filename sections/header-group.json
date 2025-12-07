@@ -55,7 +55,7 @@
         "auto_rotate": true,
         "change_slides_speed": 6,
         "color_scheme": "background-1",
-        "container": "page",
+        "container": "full",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
