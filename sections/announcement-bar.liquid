@@ -1,6 +1,9 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {%- style -%}
+.announcement-bar-section { width: 100%; }
+.utility-bar { width: 100%; max-width: 100%; overflow-x: hidden; }
+.utility-bar__grid { width: 100%; max-width: 100%; overflow-x: hidden; }
 .announcement_bar__marquee { --gap: 24px; --marquee-duration: 20s; display: flex; max-width: 100%; overflow: hidden; position: relative; user-select: none; }
 .announcement_bar__marquee .marquee__content { align-items: center; column-gap: var(--gap); display: flex; flex-shrink: 0; justify-content: space-around; letter-spacing: var(--letter-spacing-small); min-width: 100%; }
 .announcement_bar__marquee .marquee__item { display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; }
