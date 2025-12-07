@@ -25,6 +25,12 @@ menu-drawer > details[open] > summary::before {
   transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
 }
 
+@media screen and (max-width: 989px) {
+  .js menu-drawer > details[open] > summary::before {
+    display: none !important;
+  }
+}
+
 .menu-drawer {
   position: absolute;
   transform: translateX(-100%);

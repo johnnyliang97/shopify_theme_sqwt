@@ -2937,18 +2937,6 @@ details-disclosure > details {
     overflow: hidden;
     overscroll-behavior: none;
   }
-
-  .section-header.menu-open::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-bottom-position);
-    background: rgba(var(--color-foreground), 0.5);
-    z-index: 2;
-    pointer-events: none;
-  }
 }
 
 @media screen and (min-width: 750px) {
