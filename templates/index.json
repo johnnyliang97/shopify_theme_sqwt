@@ -152,6 +152,7 @@
         "featured_collection_Xn7Gry",
         "featured_collection_RqPNAp"
       ],
+      "disabled": true,
       "custom_css": [
         ".slider-counter,.icon-wrap {display: none;}",
         ".card__media,.button {border-radius: 0;}"
@@ -195,6 +196,7 @@
       "block_order": [
         "slide_k7faTJ"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "large",
@@ -208,6 +210,7 @@
     },
     "media_banner_block_aaNfRC": {
       "type": "media-banner-block",
+      "disabled": true,
       "name": "Media banner block",
       "settings": {
         "heading": "FOR ALL OCCASIONS",
