@@ -43,6 +43,7 @@ class HeaderMenu extends DetailsDisclosure {
     this.mediaChangeHandler = this.onMediaChange.bind(this);
     this.onMediaChange();
     this.mql.addEventListener('change', this.mediaChangeHandler);
+    this.summary.addEventListener('click', this.onSummaryClick.bind(this));
   }
 
   onToggle() {
@@ -81,6 +82,15 @@ class HeaderMenu extends DetailsDisclosure {
       this.removeEventListener('mouseenter', this.enterHandler);
       this.removeEventListener('mouseleave', this.leaveHandler);
     }
+  }
+
+  onSummaryClick(event) {
+    if (!this.mql.matches) return;
+    const href = this.summary?.dataset?.href;
+    if (!href) return;
+    event.preventDefault();
+    event.stopPropagation();
+    window.location.assign(href);
   }
 }
 
