@@ -91,7 +91,13 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__inner-submenu {
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-drawer__menu {
+  flex: 1 1 auto;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -244,17 +250,26 @@ details[open].menu-opening > .menu-drawer__submenu {
   }
 }
 
+@media screen and (max-width: 989px) {
+  .menu-drawer {
+    position: fixed;
+    top: var(--header-bottom-position, 100%);
+    left: 0;
+    height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 0)));
+  }
+}
+
 .menu-drawer__promo {
   padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-top: auto;
 }
 
 .menu-drawer__promo-item {
   display: block;
   text-decoration: none;
-  position: relative;
 }
 
 .menu-drawer__promo-image {
@@ -263,15 +278,10 @@ details[open].menu-opening > .menu-drawer__submenu {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--media-radius);
-  margin-bottom: 0;
+  margin-bottom: 0.8rem;
 }
 
 .menu-drawer__promo-title {
   color: rgb(var(--color-foreground));
   font-size: 1.4rem;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.8rem 1rem;
 }
