@@ -64,6 +64,21 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_promo_j6RfLi": {
+          "type": "mega_promo",
+          "name": "Tops",
+          "settings": {
+            "parent": "Tops",
+            "image": "shopify://shop_images/IMG_0583_2_04447ae2-cbfd-4456-af5e-98a52b039ac8.jpg",
+            "title": "Linea Collection",
+            "link": "shopify://collections/linea-collection"
+          }
+        }
+      },
+      "block_order": [
+        "mega_promo_j6RfLi"
+      ],
       "custom_css": [],
       "settings": {
         "logo_position": "middle-left",
