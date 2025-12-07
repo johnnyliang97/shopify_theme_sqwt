@@ -340,6 +340,9 @@
         this.updateAnnouncementOffset();
         this.resizeAnnouncementHandler = this.updateAnnouncementOffset.bind(this);
         window.addEventListener('resize', this.resizeAnnouncementHandler);
+        if (this.announcementBar) {
+          this.announcementBar.classList.add('announcement-bar-fixed');
+        }
       }
 
       this.currentScrollTop = 0;
@@ -366,6 +369,9 @@
       if (this.headerIsAlwaysSticky) {
         window.removeEventListener('resize', this.resizeFixedHandler);
         window.removeEventListener('resize', this.resizeAnnouncementHandler);
+        if (this.announcementBar) {
+          this.announcementBar.classList.remove('announcement-bar-fixed');
+        }
       }
     }
 
@@ -380,8 +386,6 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (this.headerIsAlwaysSticky) this.updateAnnouncementOffset();
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
@@ -415,10 +419,8 @@
     }
 
     updateAnnouncementOffset() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const ah = this.announcementBar ? this.announcementBar.offsetHeight : 0;
-      const offset = Math.max(ah - scrollTop, 0);
-      document.documentElement.style.setProperty('--announcement-offset', `${offset}px`);
+      document.documentElement.style.setProperty('--announcement-offset', `${ah}px`);
     }
 
     hide() {

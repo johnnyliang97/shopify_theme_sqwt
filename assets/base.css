@@ -2361,8 +2361,16 @@ input[type='checkbox'] {
   z-index: 10;
 }
 
+.announcement-bar-section.announcement-bar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+}
+
 .shopify-section-group-header-group + .shopify-section {
-  margin-top: var(--header-height);
+  margin-top: calc(var(--announcement-offset, 0) + var(--header-height));
 }
 
 /* Main Header Layout */
