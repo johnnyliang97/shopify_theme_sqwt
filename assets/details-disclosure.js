@@ -59,6 +59,16 @@ class HeaderMenu extends DetailsDisclosure {
   onMouseEnter() {
     if (!this.mql.matches) return;
     if (this.closeTimer) clearTimeout(this.closeTimer);
+
+    // Close other open details
+    const otherDetails = document.querySelectorAll('details[is="header-menu"][open]');
+    otherDetails.forEach((details) => {
+      if (details !== this.mainDetailsToggle) {
+        details.removeAttribute('open');
+        details.querySelector('summary').setAttribute('aria-expanded', false);
+      }
+    });
+
     this.mainDetailsToggle.setAttribute('open', '');
     this.summary.setAttribute('aria-expanded', true);
   }
