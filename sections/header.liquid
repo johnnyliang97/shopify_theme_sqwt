@@ -420,7 +420,9 @@
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const ah = this.announcementBar ? this.announcementBar.offsetHeight : 0;
       const offset = Math.max(ah - scrollTop, 0);
+      const h = this.header.offsetHeight || 0;
       document.documentElement.style.setProperty('--announcement-offset', `${offset}px`);
+      document.body.style.paddingTop = `${h + offset}px`;
     }
 
     hide() {
