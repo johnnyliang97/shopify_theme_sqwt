@@ -364,7 +364,6 @@
       this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.removeEventListener('scroll', this.onScrollHandler);
       if (this.headerIsAlwaysSticky) {
-        document.body.style.paddingTop = '';
         window.removeEventListener('resize', this.resizeFixedHandler);
         window.removeEventListener('resize', this.resizeAnnouncementHandler);
       }
@@ -412,17 +411,14 @@
     }
 
     applyFixedOffset() {
-      const h = this.header.offsetHeight;
-      document.body.style.paddingTop = `${h}px`;
+      /* spacing handled by CSS using --header-height */
     }
 
     updateAnnouncementOffset() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const ah = this.announcementBar ? this.announcementBar.offsetHeight : 0;
       const offset = Math.max(ah - scrollTop, 0);
-      const h = this.header.offsetHeight || 0;
       document.documentElement.style.setProperty('--announcement-offset', `${offset}px`);
-      document.body.style.paddingTop = `${h + offset}px`;
     }
 
     hide() {
