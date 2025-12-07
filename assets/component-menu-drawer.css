@@ -19,7 +19,29 @@
   transition: opacity 0s, visibility 0s;
 }
 
+.js menu-drawer > details > summary::after,
+.js menu-drawer > details[open]:not(.menu-opening) > summary::after {
+  content: '';
+  position: absolute;
+  cursor: default;
+  width: 100%;
+  height: var(--header-bottom-position, 100%);
+  top: 0;
+  left: 0;
+  background: rgba(var(--color-foreground), 0.5);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  transition: opacity 0s, visibility 0s;
+}
+
 menu-drawer > details[open] > summary::before {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
+}
+
+menu-drawer > details[open] > summary::after {
   visibility: visible;
   opacity: 1;
   transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
@@ -260,7 +282,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__promo {
-  padding: 2rem 3rem;
+  padding: 3rem 3rem 9rem 3rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
