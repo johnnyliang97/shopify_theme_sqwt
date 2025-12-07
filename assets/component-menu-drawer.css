@@ -16,6 +16,7 @@
   visibility: hidden;
   z-index: 2;
   transition: opacity 0s, visibility 0s;
+  touch-action: none;
 }
 
 menu-drawer > details[open] > summary::before {
@@ -255,6 +256,7 @@ details[open].menu-opening > .menu-drawer__submenu {
     top: var(--header-bottom-position, 100%);
     left: 0;
     height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 0)));
+    overscroll-behavior: contain;
   }
 }
 

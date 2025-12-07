@@ -2931,6 +2931,26 @@ details-disclosure > details {
   overscroll-behavior: none;
 }
 
+@media screen and (max-width: 989px) {
+  html:has(body.overflow-hidden-mobile) {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  .section-header.menu-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-bottom-position);
+    background: rgba(var(--color-foreground), 0.5);
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
 @media screen and (min-width: 750px) {
   .overflow-hidden-mobile {
     overflow: auto;
