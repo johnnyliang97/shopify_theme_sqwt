@@ -60,6 +60,8 @@
     line-height: 1;
     letter-spacing: .05em;
     text-transform: uppercase;
+    width: fit-content;
+    max-width: 100%;
   }
   #SWTDuoBanner-{{ section.id }} .swt-badge {
     display: inline-block;
@@ -69,14 +71,18 @@
     border-radius: 6px;
     font-size: 12px;
     letter-spacing: .03em;
+    width: fit-content;
+    max-width: 100%;
   }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-top-left { align-items: flex-start; justify-content: flex-start; }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-top-right { align-items: flex-start; justify-content: flex-end; }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-middle-left { align-items: center; justify-content: flex-start; }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-middle-center { align-items: center; justify-content: center; }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-middle-right { align-items: center; justify-content: flex-end; }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-bottom-left { align-items: flex-end; justify-content: flex-start; }
-  #SWTDuoBanner-{{ section.id }} .swt-pos-bottom-right { align-items: flex-end; justify-content: flex-end; }
+  @media screen and (min-width: 750px) { #SWTDuoBanner-{{ section.id }} .swt-btn { font-size: 15px; } }
+  @media screen and (max-width: 749px) { #SWTDuoBanner-{{ section.id }} .swt-btn { font-size: 11px; padding: 10px 18px; } }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-top-left .swt-banner__content { top: 0; left: 0; }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-top-right .swt-banner__content { top: 0; right: 0; }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-middle-left .swt-banner__content { top: 50%; left: 0; transform: translateY(-50%); }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-middle-center .swt-banner__content { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-middle-right .swt-banner__content { top: 50%; right: 0; transform: translateY(-50%); }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-bottom-left .swt-banner__content { bottom: 0; left: 0; }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-pos-bottom-right .swt-banner__content { bottom: 0; right: 0; }
   #SWTDuoBanner-{{ section.id }} .swt-banner__divider {
     position: absolute;
     left: 50%;
@@ -90,6 +96,13 @@
     #SWTDuoBanner-{{ section.id }} .swt-banner__inner { flex-direction: column; }
     #SWTDuoBanner-{{ section.id }} .swt-banner__item { flex-basis: 100%; }
     #SWTDuoBanner-{{ section.id }} .swt-banner__divider { display: none; }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-top-left .swt-banner__content { top: 0; left: 0; }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-top-right .swt-banner__content { top: 0; right: 0; }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-middle-left .swt-banner__content { top: 50%; left: 0; transform: translateY(-50%); }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-middle-center .swt-banner__content { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-middle-right .swt-banner__content { top: 50%; right: 0; transform: translateY(-50%); }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-bottom-left .swt-banner__content { bottom: 0; left: 0; }
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item.swt-posm-bottom-right .swt-banner__content { bottom: 0; right: 0; }
   }
 {%- endstyle -%}
 
@@ -104,7 +117,7 @@
   <div class="swt-banner__inner">
     {%- for block in section.blocks -%}
       {%- if block.type == 'tile' -%}
-      <div class="swt-banner__item swt-pos-{{ block.settings.content_position }}" {{ block.shopify_attributes }}>
+      <div class="swt-banner__item swt-pos-{{ block.settings.content_position_desktop }} swt-posm-{{ block.settings.content_position_mobile }}" {{ block.shopify_attributes }}>
         {%- if block.settings.image != blank -%}
           {%- liquid
             assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
@@ -128,7 +141,7 @@
             <span class="swt-badge">{{ block.settings.badge_text }}</span>
           {%- endif -%}
           {%- if block.settings.heading != blank -%}
-            <h2 class="swt-heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
+            <h2 class="swt-heading {{ block.settings.heading_size }}" style="color: {{ block.settings.heading_color | default: section.settings.text_color }};">{{ block.settings.heading }}</h2>
           {%- endif -%}
           {%- if block.settings.button_label != blank -%}
             <a {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %} class="swt-btn">{{ block.settings.button_label }}</a>
@@ -174,7 +187,7 @@
         { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Special Discount" },
         { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Styles" },
         { "type": "url", "id": "button_link", "label": "Button link" },
-        { "type": "select", "id": "content_position", "label": "Content position", "options": [
+        { "type": "select", "id": "content_position_desktop", "label": "Content position (desktop)", "options": [
           { "value": "top-left", "label": "Top left" },
           { "value": "top-right", "label": "Top right" },
           { "value": "middle-left", "label": "Middle left" },
@@ -183,6 +196,16 @@
           { "value": "bottom-left", "label": "Bottom left" },
           { "value": "bottom-right", "label": "Bottom right" }
         ], "default": "bottom-left" },
+        { "type": "select", "id": "content_position_mobile", "label": "Content position (mobile)", "options": [
+          { "value": "top-left", "label": "Top left" },
+          { "value": "top-right", "label": "Top right" },
+          { "value": "middle-left", "label": "Middle left" },
+          { "value": "middle-center", "label": "Middle center" },
+          { "value": "middle-right", "label": "Middle right" },
+          { "value": "bottom-left", "label": "Bottom left" },
+          { "value": "bottom-right", "label": "Bottom right" }
+        ], "default": "bottom-left" },
+        { "type": "color", "id": "heading_color", "label": "Heading color" },
         { "type": "range", "id": "content_padding_x", "label": "Content horizontal padding", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 20 },
         { "type": "range", "id": "content_padding_y", "label": "Content vertical padding", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 20 }
       ]
