@@ -85,3 +85,15 @@
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
+
+@media screen and (min-width: 990px) {
+  .header__inline-menu summary .icon-caret {
+    display: none;
+  }
+
+  .js .mega-menu:hover .mega-menu__content,
+  .mega-menu:hover .mega-menu__content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
