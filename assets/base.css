@@ -2353,6 +2353,14 @@ input[type='checkbox'] {
   z-index: 4;
 }
 
+.shopify-section-header-fixed .header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
 /* Main Header Layout */
 .header-wrapper {
   display: block;
