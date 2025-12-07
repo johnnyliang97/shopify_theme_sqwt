@@ -29,10 +29,21 @@
     justify-content: center;
     overflow: hidden;
   }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item { aspect-ratio: {{ section.settings.mobile_ratio | default: '16/9' }}; }
+  @media screen and (min-width: 750px) {
+    #SWTDuoBanner-{{ section.id }} .swt-banner__item { aspect-ratio: {{ section.settings.desktop_ratio | default: '16/9' }}; }
+  }
   #SWTDuoBanner-{{ section.id }} .swt-banner__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  #SWTDuoBanner-{{ section.id }} .swt-banner__item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
   }
   #SWTDuoBanner-{{ section.id }} .swt-banner__content {
     position: absolute;
@@ -121,7 +132,9 @@
     {%- for block in section.blocks -%}
       {%- if block.type == 'tile' -%}
       <div class="swt-banner__item swt-pos-{{ block.settings.content_position_desktop }} swt-posm-{{ block.settings.content_position_mobile }}" {{ block.shopify_attributes }}>
-        {%- if block.settings.image != blank -%}
+        {%- if block.settings.video != null -%}
+          {{ block.settings.video | video_tag: autoplay: true, loop: true, controls: false, muted: true }}
+        {%- elsif block.settings.image != blank -%}
           {%- liquid
             assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
           -%}
@@ -173,6 +186,17 @@
     { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#8bb9d9" },
     { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 30 },
     { "type": "color", "id": "text_color", "label": "Text color", "default": "#ffffff" }
+    , { "type": "header", "content": "Ratios" }
+    , { "type": "select", "id": "mobile_ratio", "label": "Mobile ratio", "options": [
+        { "value": "4/5", "label": "Portrait (4:5)" },
+        { "value": "1/1", "label": "Square (1:1)" },
+        { "value": "16/9", "label": "Landscape (16:9)" }
+      ], "default": "16/9" }
+    , { "type": "select", "id": "desktop_ratio", "label": "Desktop ratio", "options": [
+        { "value": "4/5", "label": "Portrait (4:5)" },
+        { "value": "1/1", "label": "Square (1:1)" },
+        { "value": "16/9", "label": "Landscape (16:9)" }
+      ], "default": "16/9" }
   ],
   "blocks": [
     {
@@ -180,6 +204,7 @@
       "name": "Banner tile",
       "limit": 2,
       "settings": [
+        { "type": "video", "id": "video", "label": "Video" },
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "SIGNATURE SILHOUETTES" },
         { "type": "select", "id": "heading_size", "label": "Heading size", "options": [
