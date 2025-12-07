@@ -2346,6 +2346,12 @@ input[type='checkbox'] {
   z-index: initial;
 }
 
+.shopify-section-header-sticky .header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
 /* Main Header Layout */
 .header-wrapper {
   display: block;
