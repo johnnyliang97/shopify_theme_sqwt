@@ -241,3 +241,29 @@ details[open].menu-opening > .menu-drawer__submenu {
     transition: none !important;
   }
 }
+
+.menu-drawer__promo {
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.menu-drawer__promo-item {
+  display: block;
+  text-decoration: none;
+}
+
+.menu-drawer__promo-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--media-radius);
+  margin-bottom: 0.8rem;
+}
+
+.menu-drawer__promo-title {
+  color: rgb(var(--color-foreground));
+  font-size: 1.4rem;
+}
