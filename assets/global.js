@@ -563,10 +563,12 @@ class HeaderDrawer extends MenuDrawer {
   openMenuDrawer(summaryElement) {
     this.header = this.header || document.querySelector('.section-header');
     this.headerWrapper = this.headerWrapper || document.querySelector('.header-wrapper');
-    this.borderOffset =
-      this.borderOffset || this.closest('.header-wrapper').classList.contains('header-wrapper--border-bottom') ? 1 : 0;
-    const refEl = this.headerWrapper || this.header;
-    const bottom = Math.max(0, parseInt(refEl.getBoundingClientRect().bottom - this.borderOffset));
+    this.borderOffset = this.borderOffset || (this.closest('.header-wrapper').classList.contains('header-wrapper--border-bottom') ? 1 : 0);
+    const headerEl = this.headerWrapper || this.header || document.querySelector('.header-wrapper');
+    const h = headerEl ? headerEl.offsetHeight : 0;
+    const announcementRaw = getComputedStyle(document.documentElement).getPropertyValue('--announcement-offset') || '0px';
+    const announcement = parseInt(announcementRaw) || 0;
+    const bottom = Math.max(0, h + announcement - this.borderOffset);
     document.documentElement.style.setProperty('--header-bottom-position', `${bottom}px`);
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
     this.header.classList.add('menu-open');
@@ -600,9 +602,12 @@ class HeaderDrawer extends MenuDrawer {
   }
 
   onResize = () => {
-    const refEl = this.headerWrapper || this.header;
-    if (refEl) {
-      const bottom = Math.max(0, parseInt(refEl.getBoundingClientRect().bottom - this.borderOffset));
+    const headerEl = this.headerWrapper || this.header || document.querySelector('.header-wrapper');
+    if (headerEl) {
+      const h = headerEl.offsetHeight;
+      const announcementRaw = getComputedStyle(document.documentElement).getPropertyValue('--announcement-offset') || '0px';
+      const announcement = parseInt(announcementRaw) || 0;
+      const bottom = Math.max(0, h + announcement - this.borderOffset);
       document.documentElement.style.setProperty('--header-bottom-position', `${bottom}px`);
     }
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
