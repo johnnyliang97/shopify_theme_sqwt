@@ -578,6 +578,10 @@ class HeaderDrawer extends MenuDrawer {
     window.addEventListener('resize', this.onResize);
     trapFocus(this.mainDetailsToggle, summaryElement);
     document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
+    this.scrollPosition = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${this.scrollPosition}px`;
+    document.body.style.width = '100%';
   }
 
   closeMenuDrawer(event, elementToFocus) {
@@ -585,6 +589,13 @@ class HeaderDrawer extends MenuDrawer {
     super.closeMenuDrawer(event, elementToFocus);
     this.header.classList.remove('menu-open');
     window.removeEventListener('resize', this.onResize);
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    if (typeof this.scrollPosition === 'number') {
+      window.scrollTo(0, this.scrollPosition);
+      this.scrollPosition = undefined;
+    }
   }
 
   onResize = () => {
