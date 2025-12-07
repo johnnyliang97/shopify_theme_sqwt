@@ -518,7 +518,7 @@
             "heading_size": "h2",
             "badge_text": "",
             "button_label": "Shop now",
-            "button_link": "",
+            "button_link": "shopify://products/sqwt-gift-card",
             "content_position_desktop": "middle-left",
             "content_position_mobile": "bottom-left",
             "heading_color": "",
