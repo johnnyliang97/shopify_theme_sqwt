@@ -22,7 +22,7 @@
 -%}
 
 <div class="promo-blocks color-{{ section.settings.color_scheme }} gradient">
-  <div class="{{ container_class_desktop }} small-hide medium-hide">
+  <div class="{{ container_class_desktop }} small-hide medium-hide" style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px; --title-font-size: {{ section.settings.title_font_size }}px; --subtitle-font-size: {{ section.settings.subtitle_font_size }}px; --mobile-item-max-width: {{ section.settings.mobile_item_max_width }}px;">
     <div class="promo-blocks__grid" style="--block-count: {{ section.blocks.size }};">
       {%- for block in section.blocks -%}
         <div class="promo-blocks__item" {{ block.shopify_attributes }}>
@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <div class="{{ container_class_mobile }} large-up-hide">
+  <div class="{{ container_class_mobile }} large-up-hide" style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px; --title-font-size: {{ section.settings.title_font_size }}px; --subtitle-font-size: {{ section.settings.subtitle_font_size }}px; --mobile-item-max-width: {{ section.settings.mobile_item_max_width }}px;">
     <div class="promo-blocks__marquee" role="region" aria-label="Promo blocks">
       <div
         class="promo-blocks__marquee-inner marquee{% if section.settings.marquee_hover_pause %} marquee--hover-pause{% endif %}{% if section.settings.marquee_enable_animation %} enable-animation{% endif %}"
@@ -94,6 +94,13 @@
       { "value": "page", "label": "Page width" },
       { "value": "narrow", "label": "Narrow" }
     ], "default": "page" },
+
+    { "type": "header", "content": "Content spacing and fonts" },
+    { "type": "range", "id": "margin_top", "min": 0, "max": 96, "step": 4, "unit": "px", "label": "Margin top", "default": 32 },
+    { "type": "range", "id": "margin_bottom", "min": 0, "max": 96, "step": 4, "unit": "px", "label": "Margin bottom", "default": 32 },
+    { "type": "range", "id": "title_font_size", "min": 10, "max": 32, "step": 1, "unit": "px", "label": "Title font size", "default": 16 },
+    { "type": "range", "id": "subtitle_font_size", "min": 10, "max": 24, "step": 1, "unit": "px", "label": "Subtitle font size", "default": 12 },
+    { "type": "range", "id": "mobile_item_max_width", "min": 120, "max": 600, "step": 10, "unit": "px", "label": "Mobile item max width", "default": 320 },
 
     { "type": "header", "content": "Mobile marquee" },
     { "type": "range", "id": "marquee_speed", "min": 5, "max": 60, "step": 1, "unit": "s", "label": "Marquee speed", "default": 20 },

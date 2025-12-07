@@ -2,15 +2,18 @@
 .promo-blocks__grid { display: flex; gap: 32px; }
 .promo-blocks__item { flex: 0 0 calc((100% - (var(--block-count) - 1) * 32px) / var(--block-count)); text-align: center; }
 .promo-blocks__content { display: flex; flex-direction: column; align-items: center; gap: 10px; max-width: var(--max-width, 100%); width: 100%; }
-.promo-blocks__title { margin: 0; }
-.promo-blocks__text { margin: 0; }
+.promo-blocks__title { margin: 0; font-size: var(--title-font-size, 16px); }
+.promo-blocks__text { margin: 0; font-size: var(--subtitle-font-size, 12px); }
 .promo-blocks__text { letter-spacing: 0; }
 .promo-blocks__link { padding: 0; }
 
 .promo-blocks__marquee { width: 100%; max-width: 100%; overflow: hidden; }
 .promo-blocks__marquee-inner { --gap: 24px; --marquee-duration: 20s; display: flex; max-width: 100%; overflow: hidden; position: relative; user-select: none; }
 .promo-blocks__marquee-inner .marquee__content { align-items: center; column-gap: var(--gap); display: flex; flex-shrink: 0; justify-content: space-around; letter-spacing: var(--letter-spacing-small); min-width: 100%; }
-.promo-blocks__marquee-inner .marquee__item { display: inline-flex; align-items: center; flex-direction: column; gap: .2rem; white-space: nowrap; }
+.promo-blocks__marquee-inner .marquee__item { display: inline-flex; align-items: center; flex-direction: column; gap: .2rem; white-space: nowrap; max-width: var(--mobile-item-max-width, 100%); overflow: hidden; }
+.promo-blocks__marquee-title, .promo-blocks__marquee-subtext { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.promo-blocks__marquee-title { font-size: var(--title-font-size, 16px); }
+.promo-blocks__marquee-subtext { letter-spacing: 0; font-size: var(--subtitle-font-size, 12px); }
 .promo-blocks__marquee-subtext { letter-spacing: 0; }
 @keyframes promo_marquee { 0% { transform: translateX(0); } 100% { transform: translateX(var(--marquee-translate)); } }
 .promo-blocks__marquee-inner.enable-animation .marquee__content { --marquee-translate: -100%; animation: promo_marquee linear infinite; animation-duration: var(--marquee-duration); }
