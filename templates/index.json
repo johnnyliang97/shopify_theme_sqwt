@@ -86,10 +86,12 @@
             "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_39PM.jpg",
             "heading": "SIGNATURE SILHOUETTES",
             "heading_size": "h2",
-            "badge_text": "SHOP NOW",
-            "button_label": "Shop Styles",
+            "badge_text": "",
+            "button_label": "Shop now",
             "button_link": "",
-            "content_position": "bottom-left",
+            "content_position_desktop": "middle-left",
+            "content_position_mobile": "bottom-left",
+            "heading_color": "",
             "content_padding_x": 20,
             "content_padding_y": 20
           }
@@ -100,10 +102,12 @@
             "image": "shopify://shop_images/IMG_0125.jpg",
             "heading": "SIGNATURE SILHOUETTES",
             "heading_size": "h2",
-            "badge_text": "Special Discount",
+            "badge_text": "",
             "button_label": "SHOP NOW",
             "button_link": "",
-            "content_position": "bottom-left",
+            "content_position_desktop": "middle-left",
+            "content_position_mobile": "bottom-left",
+            "heading_color": "",
             "content_padding_x": 20,
             "content_padding_y": 20
           }
