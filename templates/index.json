@@ -593,10 +593,11 @@
       "name": "Promo blocks",
       "settings": {
         "color_scheme": "",
-        "container": "page",
-        "marquee_speed": 20,
-        "marquee_gap": 24,
-        "marquee_repeat": 6,
+        "container_desktop": "page",
+        "container_mobile": "page",
+        "marquee_speed": 60,
+        "marquee_gap": 128,
+        "marquee_repeat": 3,
         "marquee_hover_pause": true,
         "marquee_enable_animation": true
       }
