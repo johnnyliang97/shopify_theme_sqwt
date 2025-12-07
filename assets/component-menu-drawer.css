@@ -82,6 +82,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   align-content: space-between;
   overflow-y: auto;
   height: 100%;
+  overscroll-behavior: contain;
 }
 
 .menu-drawer__navigation {
@@ -92,6 +93,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .js .menu-drawer__menu li {
@@ -252,6 +254,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer__promo-item {
   display: block;
   text-decoration: none;
+  position: relative;
 }
 
 .menu-drawer__promo-image {
@@ -260,10 +263,15 @@ details[open].menu-opening > .menu-drawer__submenu {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--media-radius);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0;
 }
 
 .menu-drawer__promo-title {
   color: rgb(var(--color-foreground));
   font-size: 1.4rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.8rem 1rem;
 }

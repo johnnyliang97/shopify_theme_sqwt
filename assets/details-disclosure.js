@@ -59,6 +59,9 @@ class HeaderMenu extends DetailsDisclosure {
   onMouseEnter() {
     if (!this.mql.matches) return;
     if (this.closeTimer) clearTimeout(this.closeTimer);
+    document.querySelectorAll('header-menu').forEach((menu) => {
+      if (menu !== this) menu.close();
+    });
     this.mainDetailsToggle.setAttribute('open', '');
     this.summary.setAttribute('aria-expanded', true);
   }
