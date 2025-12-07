@@ -321,6 +321,7 @@
 
     connectedCallback() {
       this.header = document.querySelector('.section-header');
+      this.announcementBar = document.querySelector('.announcement-bar-section');
       this.headerIsAlwaysSticky =
         this.getAttribute('data-sticky-type') === 'always' ||
         this.getAttribute('data-sticky-type') === 'reduce-logo-size';
@@ -336,6 +337,9 @@
         this.applyFixedOffset();
         this.resizeFixedHandler = this.applyFixedOffset.bind(this);
         window.addEventListener('resize', this.resizeFixedHandler);
+        this.updateAnnouncementOffset();
+        this.resizeAnnouncementHandler = this.updateAnnouncementOffset.bind(this);
+        window.addEventListener('resize', this.resizeAnnouncementHandler);
       }
 
       this.currentScrollTop = 0;
@@ -362,6 +366,7 @@
       if (this.headerIsAlwaysSticky) {
         document.body.style.paddingTop = '';
         window.removeEventListener('resize', this.resizeFixedHandler);
+        window.removeEventListener('resize', this.resizeAnnouncementHandler);
       }
     }
 
@@ -376,6 +381,8 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (this.headerIsAlwaysSticky) this.updateAnnouncementOffset();
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
@@ -407,6 +414,13 @@
     applyFixedOffset() {
       const h = this.header.offsetHeight;
       document.body.style.paddingTop = `${h}px`;
+    }
+
+    updateAnnouncementOffset() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const ah = this.announcementBar ? this.announcementBar.offsetHeight : 0;
+      const offset = Math.max(ah - scrollTop, 0);
+      document.documentElement.style.setProperty('--announcement-offset', `${offset}px`);
     }
 
     hide() {
