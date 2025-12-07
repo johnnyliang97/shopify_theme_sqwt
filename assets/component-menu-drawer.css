@@ -259,7 +259,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 @media screen and (max-width: 989px) {
   .menu-drawer {
     position: fixed;
-    top: var(--header-bottom-position, 100%);
+    top: var(--header-bottom-position, 0);
     left: 0;
     height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 0)));
     overscroll-behavior: contain;

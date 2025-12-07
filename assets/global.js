@@ -564,10 +564,9 @@ class HeaderDrawer extends MenuDrawer {
     this.header = this.header || document.querySelector('.section-header');
     this.borderOffset =
       this.borderOffset || this.closest('.header-wrapper').classList.contains('header-wrapper--border-bottom') ? 1 : 0;
-    document.documentElement.style.setProperty(
-      '--header-bottom-position',
-      `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
-    );
+    const bottom = Math.max(0, parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset));
+    document.documentElement.style.setProperty('--header-bottom-position', `${bottom}px`);
+    document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
     this.header.classList.add('menu-open');
 
     setTimeout(() => {
@@ -599,11 +598,10 @@ class HeaderDrawer extends MenuDrawer {
   }
 
   onResize = () => {
-    this.header &&
-      document.documentElement.style.setProperty(
-        '--header-bottom-position',
-        `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
-      );
+    if (this.header) {
+      const bottom = Math.max(0, parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset));
+      document.documentElement.style.setProperty('--header-bottom-position', `${bottom}px`);
+    }
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
   };
 }
