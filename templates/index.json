@@ -1,1 +1,669 @@
-{"sections":{"175828229230ffa141":{"type":"_blocks","blocks":{"ai_gen_block_4fe40d1_wWtVVP":{"type":"ai_gen_block_4fe40d1","settings":{"desktop_image":"shopify:\/\/shop_images\/Generated_Image_November_27_2025_-_8_24PM.jpg","mobile_image":"shopify:\/\/shop_images\/IMG_1856_503b09ff-a747-4b26-b0d0-8299a80b8bae.jpg","desktop_height":600,"mobile_height":500,"button_text":"SHOP NOW","button_link":"shopify:\/\/collections\/linea-collection","button_bottom_spacing":40,"button_font_size":14,"button_padding_vertical":14,"button_padding_horizontal":28,"button_border_radius":0,"button_hover_color":"#f0f0f0","button_hover_text_color":"#000000","header_text":"WEAR WHAT MOVES YOU","subtext_text":"Shop Linea Collections","header_font_size":36,"header_color":"#ffffff","subtext_font_size":16,"subtext_color":"#ffffff"},"blocks":{}}},"block_order":["ai_gen_block_4fe40d1_wWtVVP"],"name":"Mega Image","settings":{}},"featured_collection_TJVaQG":{"type":"featured-collection","custom_css":[".slider-counter,.icon-wrap {display: none;}",".button {border-radius: 0;}"],"name":"New Arrivals","settings":{"collection":"new-arrivals","products_to_show":4,"title":"NEW ARRIVALS","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":false,"view_all_style":"solid","color_scheme":"background-1","image_ratio":"portrait","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}},"multicolumn_QYcWgT":{"type":"multicolumn","blocks":{"column_hFcVQR":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/IMG_9982.jpg","title":"","text":"","link_label":"TOPS","link":"shopify:\/\/collections\/tops"}},"column_tEJbxA":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/IMG_2417.jpg","title":"","text":"","link_label":"JACKETS","link":"shopify:\/\/collections\/jackets"}},"column_3EKtJw":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/IMG_2446.jpg","title":"","text":"","link_label":"LEGGINGS","link":"shopify:\/\/collections\/leggings"}},"column_DXBQmR":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/IMG_2444.jpg","title":"","text":"","link_label":"SHORTS","link":"shopify:\/\/collections\/shorts"}}},"block_order":["column_hFcVQR","column_tEJbxA","column_3EKtJw","column_DXBQmR"],"name":"Categories","settings":{"title":"","heading_size":"h2","image_width":"full","image_ratio":"square","button_label":"","button_link":"","columns_desktop":4,"column_alignment":"center","background_style":"none","color_scheme":"","columns_mobile":"2","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"swt_duo_image_banner_6xNqQD":{"type":"swt-duo-image-banner","blocks":{"tile_eLzmMC":{"type":"tile","settings":{"image":"shopify:\/\/shop_images\/Generated_Image_November_27_2025_-_8_39PM.jpg","heading":"BEST SELLERS","heading_size":"h2","badge_text":"","button_label":"Shop now","button_link":"shopify:\/\/collections\/new-arrivals","content_position_desktop":"middle-left","content_position_mobile":"bottom-left","heading_color":"","content_padding_x":20,"content_padding_y":20}},"tile_yaXwax":{"type":"tile","settings":{"video":"shopify:\/\/files\/videos\/IMG_0827.mov","heading":"FROM STUDIO TO EVERYDAY","heading_size":"h2","badge_text":"","button_label":"SHOP NOW","button_link":"shopify:\/\/collections\/new-arrivals","content_position_desktop":"middle-left","content_position_mobile":"bottom-left","heading_color":"","content_padding_x":20,"content_padding_y":20}}},"block_order":["tile_eLzmMC","tile_yaXwax"],"name":"Duo Image Banner","settings":{"image_height":"small","overlay_color":"#8bb9d9","overlay_opacity":0,"text_color":"#ffffff","mobile_ratio":"4\/5","desktop_ratio":"4\/5"}},"collection_list_9VQxNQ":{"type":"collection-list","blocks":{"featured_collection_fYbgVm":{"type":"featured_collection","settings":{"collection":"tops"}},"featured_collection_Xn7Gry":{"type":"featured_collection","settings":{"collection":"leggings"}},"featured_collection_RqPNAp":{"type":"featured_collection","settings":{"collection":"shorts"}}},"block_order":["featured_collection_fYbgVm","featured_collection_Xn7Gry","featured_collection_RqPNAp"],"disabled":true,"custom_css":[".slider-counter,.icon-wrap {display: none;}",".card__media,.button {border-radius: 0;}"],"name":"TRENDING NOW","settings":{"title":"TRENDING NOW","heading_size":"h2","image_ratio":"portrait","columns_desktop":3,"color_scheme":"","show_view_all":true,"columns_mobile":"1","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}},"slideshow_ieznDB":{"type":"slideshow","blocks":{"slide_k7faTJ":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Generated_Image_November_27_2025_-_8_29PM.jpg","image_overlay_opacity":30,"heading":"15% OFF FIRST ORDER","heading_size":"h2","subheading":"Use code NEW15 at checkout","button_label":"Shop Now","link":"shopify:\/\/collections","button_style_secondary":true,"show_text_box":false,"box_align":"middle-center","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"accent-2"}}},"block_order":["slide_k7faTJ"],"disabled":true,"settings":{"layout":"full_bleed","slide_height":"large","slider_visual":"counter","auto_rotate":true,"change_slides_speed":5,"image_behavior":"none","show_text_below":true,"accessibility_info":"Slideshow about our brand"}},"media_banner_block_aaNfRC":{"type":"media-banner-block","disabled":true,"name":"Media banner block","settings":{"heading":"FOR ALL OCCASIONS","subheading":"The Linea Collection","heading_size":26,"heading_color":"#ffffff","subheading_size":14,"subheading_color":"#ffffff","spacing_heading_subheading":12,"spacing_subheading_button":16,"content_alignment":"center","content_vertical":"bottom","button_label":"Shop Now","button_link":"shopify:\/\/collections\/linea-collection","button_style":"primary","button_font_size":14,"button_text_color":"#ffffff","button_bg_color":"rgba(0,0,0,0)","button_hover_bg_color":"rgba(0,0,0,0)","button_hover_text_color":"#f0f0f0","button_border_radius":4,"button_padding_vertical":12,"button_padding_horizontal":24,"button_outline_color":"#ffffff","button_outline_hover_color":"#ffffff","button_outline_width":1,"button_outline_style":"solid","bg_video":"shopify:\/\/files\/videos\/IMG_0827.mov","overlay_color":"#000000","overlay_opacity":40,"mobile_ratio":"4\/5","desktop_ratio":"16\/9","color_scheme":"","container":"full","padding_top":40,"padding_bottom":40}},"empty_space_rYGi6N":{"type":"empty-space","name":"Empty space","settings":{"mobile_spacing":24,"desktop_spacing":48}},"ai_shop_look_MmFdVG":{"type":"ai-shop-look","blocks":{"slide_H48w4h":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/Generated_Image_November_27_2025_-_8_58PM.jpg","hotspot_1_enabled":true,"hotspot_1_x":24,"hotspot_1_y":46,"hotspot_1_product":"serenity-top","hotspot_2_enabled":true,"hotspot_2_x":63,"hotspot_2_y":74,"hotspot_2_product":"serenity-v-shape-shorts"}},"slide_xLGhLV":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/IMG_1853.jpg","hotspot_1_enabled":true,"hotspot_1_x":53,"hotspot_1_y":35,"hotspot_1_product":"elevate-bra","hotspot_2_enabled":true,"hotspot_2_x":62,"hotspot_2_y":70,"hotspot_2_product":"linea-lift-leggings"}},"slide_9qEGzR":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/Generated_Image_November_27_2025_-_9_14PM_6d60186a-1cf3-49f1-ae23-6fcffef91ef2.jpg","hotspot_1_enabled":true,"hotspot_1_x":65,"hotspot_1_y":23,"hotspot_1_product":"cross-back-sports-bra-1","hotspot_2_enabled":true,"hotspot_2_x":43,"hotspot_2_y":70,"hotspot_2_product":"high-waisted-butt-lifting-leggings"}},"slide_Gd8DK9":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/Generated_Image_November_27_2025_-_9_22PM.jpg","hotspot_1_enabled":true,"hotspot_1_x":30,"hotspot_1_y":54,"hotspot_1_product":"elevate-bra","hotspot_2_enabled":true,"hotspot_2_x":56,"hotspot_2_y":84,"hotspot_2_product":"linea-lift-leggings"}},"slide_K6rNdx":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/WhatsApp_Image_2025-11-27_at_17.38.30.jpg","hotspot_1_enabled":true,"hotspot_1_x":25,"hotspot_1_y":63,"hotspot_1_product":"elevate-bra","hotspot_2_enabled":false,"hotspot_2_x":70,"hotspot_2_y":60,"hotspot_2_product":""}},"slide_CLmgah":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/WhatsApp_Image_2025-11-27_at_17.39.29.jpg","hotspot_1_enabled":true,"hotspot_1_x":40,"hotspot_1_y":30,"hotspot_1_product":"cross-back-sports-bra-1","hotspot_2_enabled":true,"hotspot_2_x":36,"hotspot_2_y":66,"hotspot_2_product":"high-waisted-butt-lifting-leggings"}},"slide_bm93zf":{"type":"slide","settings":{"enabled":true,"image":"shopify:\/\/shop_images\/IMG_5786.jpg","hotspot_1_enabled":true,"hotspot_1_x":32,"hotspot_1_y":40,"hotspot_1_product":"elevate-bra","hotspot_2_enabled":true,"hotspot_2_x":55,"hotspot_2_y":60,"hotspot_2_product":"linea-lift-leggings"}}},"block_order":["slide_H48w4h","slide_xLGhLV","slide_9qEGzR","slide_Gd8DK9","slide_K6rNdx","slide_CLmgah","slide_bm93zf"],"name":"Shop this look","settings":{"title":"SQWT BABES","subtitle":"Love These Outfit? Shop It!!!","text_alignment":"center","container":"page","desktop_columns":"3","desktop_gap":16,"image_aspect_ratio":"4\/5","title_size":20,"subtitle_size":14,"text_color":"#121212","hotspot_size":26,"hotspot_color":"#ffffff","hotspot_border_color":"#000000","hotspot_icon_color":"#000000","popup_position":"top","popup_width":260,"popup_bg_color":"#ffffff","popup_text_color":"#000000","nav_button_color":"#ffffff","nav_button_hover_color":"#f5f5f5","nav_button_icon_color":"#000000"}},"empty_space_kTVF8M":{"type":"empty-space","name":"Empty space","settings":{"mobile_spacing":24,"desktop_spacing":48}},"featured_collection_K4wUjJ":{"type":"featured-collection","name":"Just In","settings":{"collection":"bottoms","products_to_show":4,"title":"","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":false,"view_all_style":"solid","color_scheme":"background-1","image_ratio":"portrait","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":36,"padding_bottom":36}},"swt_duo_image_banner_kdePbH":{"type":"swt-duo-image-banner","blocks":{"tile_qdUP9b":{"type":"tile","settings":{"image":"shopify:\/\/shop_images\/giftcard.jpg","heading":"GIFT CARD","heading_size":"h2","badge_text":"","button_label":"Shop now","button_link":"shopify:\/\/products\/sqwt-gift-card","content_position_desktop":"middle-left","content_position_mobile":"bottom-left","heading_color":"","content_padding_x":20,"content_padding_y":20}},"tile_wLBJLf":{"type":"tile","settings":{"image":"shopify:\/\/shop_images\/IMG_3679.jpg","heading":"FOLLOW SQWT","heading_size":"h2","badge_text":"","button_label":"@sqwt.official","button_link":"https:\/\/www.instagram.com\/sqwt.official\/","content_position_desktop":"middle-left","content_position_mobile":"bottom-left","heading_color":"","content_padding_x":20,"content_padding_y":20}}},"block_order":["tile_qdUP9b","tile_wLBJLf"],"name":"Duo Image Banner","settings":{"image_height":"small","overlay_color":"#8bb9d9","overlay_opacity":0,"text_color":"#ffffff","mobile_ratio":"4\/5","desktop_ratio":"4\/5"}},"promo_blocks_eXLJi3":{"type":"promo-blocks","blocks":{"promo_item_TPt66K":{"type":"promo_item","settings":{"heading":"EASY RETURNS","subtext":"ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE","link":""}},"promo_item_rtMmGy":{"type":"promo_item","settings":{"heading":"AFTER PAY NOW AVAILABLE","subtext":"SHOP NOW, PAY LATER","link":""}},"promo_item_NVHWiF":{"type":"promo_item","settings":{"heading":"FAST SHIPPING","subtext":"ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE","link":""}}},"block_order":["promo_item_TPt66K","promo_item_rtMmGy","promo_item_NVHWiF"],"name":"Promo blocks","settings":{"color_scheme":"","container_desktop":"page","container_mobile":"full","margin_top":64,"margin_bottom":64,"title_font_size":16,"subtitle_font_size":14,"mobile_item_max_width":250,"marquee_speed":60,"marquee_gap":128,"marquee_repeat":3,"marquee_hover_pause":true,"marquee_enable_animation":true}},"1764240122aac3d8db":{"type":"_blocks","blocks":{"ai_gen_block_b3083a3_Xj4MTp":{"type":"ai_gen_block_b3083a3","settings":{"heading":"Stay in the loop","subheading":"Subscribe to get exclusive offers, new arrivals, and updates delivered to your inbox.","email_placeholder":"Enter your email","button_text":"Subscribe","success_message":"Thanks for subscribing!","text_alignment":"center","max_width":600,"padding_top":40,"padding_bottom":40,"padding_horizontal":20,"background_color":"#defeff","heading_color":"#121212","text_color":"#121212","input_background_color":"#ffffff","input_text_color":"#121212","input_border_color":"#121212","button_color":"#121212","button_hover_color":"#011808","button_text_color":"#ffffff","success_color":"#008060","error_color":"#d82c0d","heading_size":32,"text_size":16,"input_border_thickness":1,"input_border_radius":4,"button_border_radius":4},"blocks":{}}},"block_order":["ai_gen_block_b3083a3_Xj4MTp"],"name":"Email Subscribe","settings":{}}},"order":["175828229230ffa141","featured_collection_TJVaQG","multicolumn_QYcWgT","swt_duo_image_banner_6xNqQD","collection_list_9VQxNQ","slideshow_ieznDB","media_banner_block_aaNfRC","empty_space_rYGi6N","ai_shop_look_MmFdVG","empty_space_kTVF8M","featured_collection_K4wUjJ","swt_duo_image_banner_kdePbH","promo_blocks_eXLJi3","1764240122aac3d8db"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "175828229230ffa141": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_4fe40d1_wWtVVP": {
+          "type": "ai_gen_block_4fe40d1",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_24PM.jpg",
+            "mobile_image": "shopify://shop_images/IMG_1856_503b09ff-a747-4b26-b0d0-8299a80b8bae.jpg",
+            "desktop_height": 600,
+            "mobile_height": 500,
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/linea-collection",
+            "button_bottom_spacing": 40,
+            "button_font_size": 14,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 28,
+            "button_border_radius": 0,
+            "button_hover_color": "#f0f0f0",
+            "button_hover_text_color": "#000000",
+            "header_text": "FEEL THE FREEDOM",
+            "subtext_text": "Shop Linea Collections",
+            "header_font_size": 36,
+            "header_color": "#ffffff",
+            "subtext_font_size": 16,
+            "subtext_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_4fe40d1_wWtVVP"
+      ],
+      "name": "Mega Image",
+      "settings": {}
+    },
+    "featured_collection_TJVaQG": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".slider-counter,.icon-wrap {display: none;}",
+        ".button {border-radius: 0;}"
+      ],
+      "name": "New Arrivals",
+      "settings": {
+        "collection": "new-arrivals",
+        "products_to_show": 4,
+        "title": "NEW ARRIVALS",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_QYcWgT": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_hFcVQR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_2015.png",
+            "title": "TOPS",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_tEJbxA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1626_5d327481-b5d0-4ecf-a725-cc9c5e26e5b2.png",
+            "title": "JACKETS",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3EKtJw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_1483_251d2b23-7c42-4191-b802-12ea59d198ce.png",
+            "title": "LEGGINGS",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DXBQmR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0604_e8b3b8ce-dc1f-4a4a-b040-cec3c48e8c66.jpg",
+            "title": "SHORTS",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_hFcVQR",
+        "column_tEJbxA",
+        "column_3EKtJw",
+        "column_DXBQmR"
+      ],
+      "name": "Categories",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "swt_duo_image_banner_6xNqQD": {
+      "type": "swt-duo-image-banner",
+      "blocks": {
+        "tile_eLzmMC": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_39PM.jpg",
+            "heading": "SIGNATURE STYLES",
+            "heading_size": "h2",
+            "badge_text": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/new-arrivals",
+            "content_position_desktop": "middle-left",
+            "content_position_mobile": "bottom-left",
+            "heading_color": "",
+            "content_padding_x": 20,
+            "content_padding_y": 20
+          }
+        },
+        "tile_yaXwax": {
+          "type": "tile",
+          "settings": {
+            "video": "shopify://files/videos/IMG_0827.mov",
+            "heading": "FOR ALL OCCASIONS",
+            "heading_size": "h2",
+            "badge_text": "",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/new-arrivals",
+            "content_position_desktop": "middle-left",
+            "content_position_mobile": "bottom-left",
+            "heading_color": "",
+            "content_padding_x": 20,
+            "content_padding_y": 20
+          }
+        }
+      },
+      "block_order": [
+        "tile_eLzmMC",
+        "tile_yaXwax"
+      ],
+      "name": "Duo Image Banner",
+      "settings": {
+        "image_height": "small",
+        "overlay_color": "#8bb9d9",
+        "overlay_opacity": 0,
+        "text_color": "#ffffff",
+        "mobile_ratio": "4/5",
+        "desktop_ratio": "4/5"
+      }
+    },
+    "collection_list_9VQxNQ": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_fYbgVm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tops"
+          }
+        },
+        "featured_collection_Xn7Gry": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "leggings"
+          }
+        },
+        "featured_collection_RqPNAp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "shorts"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_fYbgVm",
+        "featured_collection_Xn7Gry",
+        "featured_collection_RqPNAp"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slider-counter,.icon-wrap {display: none;}",
+        ".card__media,.button {border-radius: 0;}"
+      ],
+      "name": "TRENDING NOW",
+      "settings": {
+        "title": "TRENDING NOW",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "slideshow_ieznDB": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_k7faTJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_29PM.jpg",
+            "image_overlay_opacity": 30,
+            "heading": "15% OFF FIRST ORDER",
+            "heading_size": "h2",
+            "subheading": "Use code NEW15 at checkout",
+            "button_label": "Shop Now",
+            "link": "shopify://collections",
+            "button_style_secondary": true,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "accent-2"
+          }
+        }
+      },
+      "block_order": [
+        "slide_k7faTJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "media_banner_block_aaNfRC": {
+      "type": "media-banner-block",
+      "disabled": true,
+      "name": "Media banner block",
+      "settings": {
+        "heading": "FOR ALL OCCASIONS",
+        "subheading": "The Linea Collection",
+        "heading_size": 26,
+        "heading_color": "#ffffff",
+        "subheading_size": 14,
+        "subheading_color": "#ffffff",
+        "spacing_heading_subheading": 12,
+        "spacing_subheading_button": 16,
+        "content_alignment": "center",
+        "content_vertical": "bottom",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/linea-collection",
+        "button_style": "primary",
+        "button_font_size": 14,
+        "button_text_color": "#ffffff",
+        "button_bg_color": "rgba(0,0,0,0)",
+        "button_hover_bg_color": "rgba(0,0,0,0)",
+        "button_hover_text_color": "#f0f0f0",
+        "button_border_radius": 4,
+        "button_padding_vertical": 12,
+        "button_padding_horizontal": 24,
+        "button_outline_color": "#ffffff",
+        "button_outline_hover_color": "#ffffff",
+        "button_outline_width": 1,
+        "button_outline_style": "solid",
+        "bg_video": "shopify://files/videos/IMG_0827.mov",
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "mobile_ratio": "4/5",
+        "desktop_ratio": "16/9",
+        "color_scheme": "",
+        "container": "full",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "empty_space_rYGi6N": {
+      "type": "empty-space",
+      "name": "Empty space",
+      "settings": {
+        "mobile_spacing": 24,
+        "desktop_spacing": 48
+      }
+    },
+    "ai_shop_look_MmFdVG": {
+      "type": "ai-shop-look",
+      "blocks": {
+        "slide_H48w4h": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_58PM.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 24,
+            "hotspot_1_y": 46,
+            "hotspot_1_product": "serenity-top",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 63,
+            "hotspot_2_y": 74,
+            "hotspot_2_product": "serenity-v-shape-shorts"
+          }
+        },
+        "slide_xLGhLV": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/IMG_1853.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 53,
+            "hotspot_1_y": 35,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 62,
+            "hotspot_2_y": 70,
+            "hotspot_2_product": "linea-lift-leggings"
+          }
+        },
+        "slide_9qEGzR": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_14PM_6d60186a-1cf3-49f1-ae23-6fcffef91ef2.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 65,
+            "hotspot_1_y": 23,
+            "hotspot_1_product": "cross-back-sports-bra-1",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 43,
+            "hotspot_2_y": 70,
+            "hotspot_2_product": "high-waisted-butt-lifting-leggings"
+          }
+        },
+        "slide_Gd8DK9": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_22PM.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 30,
+            "hotspot_1_y": 54,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 56,
+            "hotspot_2_y": 84,
+            "hotspot_2_product": "linea-lift-leggings"
+          }
+        },
+        "slide_K6rNdx": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/WhatsApp_Image_2025-11-27_at_17.38.30.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 25,
+            "hotspot_1_y": 63,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": false,
+            "hotspot_2_x": 70,
+            "hotspot_2_y": 60,
+            "hotspot_2_product": ""
+          }
+        },
+        "slide_CLmgah": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/WhatsApp_Image_2025-11-27_at_17.39.29.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 40,
+            "hotspot_1_y": 30,
+            "hotspot_1_product": "cross-back-sports-bra-1",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 36,
+            "hotspot_2_y": 66,
+            "hotspot_2_product": "high-waisted-butt-lifting-leggings"
+          }
+        },
+        "slide_bm93zf": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/IMG_5786.jpg",
+            "hotspot_1_enabled": true,
+            "hotspot_1_x": 32,
+            "hotspot_1_y": 40,
+            "hotspot_1_product": "elevate-bra",
+            "hotspot_2_enabled": true,
+            "hotspot_2_x": 55,
+            "hotspot_2_y": 60,
+            "hotspot_2_product": "linea-lift-leggings"
+          }
+        }
+      },
+      "block_order": [
+        "slide_H48w4h",
+        "slide_xLGhLV",
+        "slide_9qEGzR",
+        "slide_Gd8DK9",
+        "slide_K6rNdx",
+        "slide_CLmgah",
+        "slide_bm93zf"
+      ],
+      "name": "Shop this look",
+      "settings": {
+        "title": "SHOP THIS LOOK",
+        "subtitle": "Discover the products featured in the looks",
+        "text_alignment": "center",
+        "container": "page",
+        "desktop_columns": "3",
+        "desktop_gap": 16,
+        "image_aspect_ratio": "4/5",
+        "title_size": 20,
+        "subtitle_size": 14,
+        "text_color": "#000000",
+        "hotspot_size": 26,
+        "hotspot_color": "#ffffff",
+        "hotspot_border_color": "#000000",
+        "hotspot_icon_color": "#000000",
+        "popup_position": "top",
+        "popup_width": 260,
+        "popup_bg_color": "#ffffff",
+        "popup_text_color": "#000000",
+        "nav_button_color": "#ffffff",
+        "nav_button_hover_color": "#f5f5f5",
+        "nav_button_icon_color": "#000000"
+      }
+    },
+    "empty_space_kTVF8M": {
+      "type": "empty-space",
+      "name": "Empty space",
+      "settings": {
+        "mobile_spacing": 24,
+        "desktop_spacing": 48
+      }
+    },
+    "featured_collection_K4wUjJ": {
+      "type": "featured-collection",
+      "name": "Just In",
+      "settings": {
+        "collection": "bottoms",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "swt_duo_image_banner_kdePbH": {
+      "type": "swt-duo-image-banner",
+      "blocks": {
+        "tile_qdUP9b": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_22PM.jpg",
+            "heading": "GIFT CARDS",
+            "heading_size": "h2",
+            "badge_text": "",
+            "button_label": "Shop now",
+            "button_link": "",
+            "content_position_desktop": "middle-left",
+            "content_position_mobile": "bottom-left",
+            "heading_color": "",
+            "content_padding_x": 20,
+            "content_padding_y": 20
+          }
+        },
+        "tile_wLBJLf": {
+          "type": "tile",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0125.jpg",
+            "heading": "FOLLOW SQWT",
+            "heading_size": "h2",
+            "badge_text": "",
+            "button_label": "@sqwt.official",
+            "button_link": "https://www.instagram.com/sqwt.official/",
+            "content_position_desktop": "middle-left",
+            "content_position_mobile": "bottom-left",
+            "heading_color": "",
+            "content_padding_x": 20,
+            "content_padding_y": 20
+          }
+        }
+      },
+      "block_order": [
+        "tile_qdUP9b",
+        "tile_wLBJLf"
+      ],
+      "name": "Duo Image Banner",
+      "settings": {
+        "image_height": "small",
+        "overlay_color": "#8bb9d9",
+        "overlay_opacity": 0,
+        "text_color": "#ffffff",
+        "mobile_ratio": "4/5",
+        "desktop_ratio": "4/5"
+      }
+    },
+    "promo_blocks_eXLJi3": {
+      "type": "promo-blocks",
+      "blocks": {
+        "promo_item_TPt66K": {
+          "type": "promo_item",
+          "settings": {
+            "heading": "EASY RETURNS",
+            "subtext": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE",
+            "link": ""
+          }
+        },
+        "promo_item_rtMmGy": {
+          "type": "promo_item",
+          "settings": {
+            "heading": "HIGH QUALITY",
+            "subtext": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE",
+            "link": ""
+          }
+        },
+        "promo_item_NVHWiF": {
+          "type": "promo_item",
+          "settings": {
+            "heading": "FAST SHIPPING",
+            "subtext": "ENJOY 30 DAY RETURNS FROM THE DELIVERY DATE",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "promo_item_TPt66K",
+        "promo_item_rtMmGy",
+        "promo_item_NVHWiF"
+      ],
+      "name": "Promo blocks",
+      "settings": {
+        "color_scheme": "",
+        "container_desktop": "page",
+        "container_mobile": "full",
+        "margin_top": 64,
+        "margin_bottom": 64,
+        "title_font_size": 16,
+        "subtitle_font_size": 14,
+        "mobile_item_max_width": 250,
+        "marquee_speed": 60,
+        "marquee_gap": 128,
+        "marquee_repeat": 3,
+        "marquee_hover_pause": true,
+        "marquee_enable_animation": true
+      }
+    },
+    "1764240122aac3d8db": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b3083a3_Xj4MTp": {
+          "type": "ai_gen_block_b3083a3",
+          "settings": {
+            "heading": "Stay in the loop",
+            "subheading": "Subscribe to get exclusive offers, new arrivals, and updates delivered to your inbox.",
+            "email_placeholder": "Enter your email",
+            "button_text": "Subscribe",
+            "success_message": "Thanks for subscribing!",
+            "text_alignment": "center",
+            "max_width": 600,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "padding_horizontal": 20,
+            "background_color": "#defeff",
+            "heading_color": "#121212",
+            "text_color": "#121212",
+            "input_background_color": "#ffffff",
+            "input_text_color": "#121212",
+            "input_border_color": "#121212",
+            "button_color": "#121212",
+            "button_hover_color": "#011808",
+            "button_text_color": "#ffffff",
+            "success_color": "#008060",
+            "error_color": "#d82c0d",
+            "heading_size": 32,
+            "text_size": 16,
+            "input_border_thickness": 1,
+            "input_border_radius": 4,
+            "button_border_radius": 4
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b3083a3_Xj4MTp"
+      ],
+      "name": "Email Subscribe",
+      "settings": {}
+    }
+  },
+  "order": [
+    "175828229230ffa141",
+    "featured_collection_TJVaQG",
+    "multicolumn_QYcWgT",
+    "swt_duo_image_banner_6xNqQD",
+    "collection_list_9VQxNQ",
+    "slideshow_ieznDB",
+    "media_banner_block_aaNfRC",
+    "empty_space_rYGi6N",
+    "ai_shop_look_MmFdVG",
+    "empty_space_kTVF8M",
+    "featured_collection_K4wUjJ",
+    "swt_duo_image_banner_kdePbH",
+    "promo_blocks_eXLJi3",
+    "1764240122aac3d8db"
+  ]
+}
