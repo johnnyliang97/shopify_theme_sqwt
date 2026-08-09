@@ -69,17 +69,91 @@
                       </li>
                     {%- endfor -%}
                   </ul>
-                  {%- assign has_promos = false -%}
-                  {%- assign link_key = link.title | strip | downcase -%}
-                  {%- for block in section.blocks -%}
-                    {%- if block.type == 'mega_promo' and block.settings.parent != blank -%}
-                      {%- assign block_parent_key = block.settings.parent | strip | downcase -%}
-                      {%- if block_parent_key == link_key -%}
-                        {%- assign has_promos = true -%}
-                      {%- endif -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-                  {%- if has_promos -%}
+
+                  {%- liquid
+                    assign link_key = link.title | strip | downcase
+                    assign has_promos = false
+                    assign has_child_promos = false
+                    assign has_tiles = false
+
+                    for block in section.blocks
+                      if block.type == 'mega_promo' and block.settings.parent != blank
+                        assign block_parent_key = block.settings.parent | strip | downcase
+                        if block_parent_key == link_key
+                          assign has_promos = true
+                        endif
+                      endif
+                      if block.type == 'mega_child_promo' and block.settings.parent != blank
+                        assign block_parent_key = block.settings.parent | strip | downcase
+                        if block_parent_key == link_key
+                          assign has_child_promos = true
+                        endif
+                      endif
+                    endfor
+
+                    if has_child_promos or link.links != blank
+                      assign has_tiles = true
+                    endif
+                  -%}
+
+                  {%- if has_tiles -%}
+                    <div class="mega-menu__tiles">
+                      {%- for childlink in link.links -%}
+                        {%- liquid
+                          assign child_key = childlink.title | strip | downcase
+                          assign child_tile = null
+                          assign child_image = null
+                          assign child_title = null
+                          assign child_subtitle = null
+                          assign child_obj = null
+
+                          for block in section.blocks
+                            if block.type == 'mega_child_promo' and block.settings.parent != blank and block.settings.child != blank
+                              assign block_parent_key = block.settings.parent | strip | downcase
+                              assign block_child_key = block.settings.child | strip | downcase
+                              if block_parent_key == link_key and block_child_key == child_key
+                                assign child_tile = block
+                              endif
+                            endif
+                          endfor
+
+                          if child_tile != null and child_tile.settings.image != blank
+                            assign child_image = child_tile.settings.image
+                          endif
+
+                          if childlink.type == 'collection_link' and collections[childlink.object] != blank
+                            assign child_obj = collections[childlink.object]
+                            if child_image == blank and child_obj.image != blank
+                              assign child_image = child_obj.image
+                            endif
+                          endif
+
+                          if child_tile != null and child_tile.settings.title != blank
+                            assign child_title = child_tile.settings.title
+                          else
+                            assign child_title = childlink.title
+                          endif
+
+                          if child_tile != null and child_tile.settings.subtitle != blank
+                            assign child_subtitle = child_tile.settings.subtitle
+                          endif
+                        -%}
+                        <a href="{{ childlink.url }}" class="mega-menu__tile">
+                          <div class="mega-menu__tile-media">
+                            {%- if child_image != blank -%}
+                              {{ child_image | image_url: width: 600 | image_tag: class: 'mega-menu__tile-image', loading: 'lazy', widths: '300,450,600,900', alt: child_title | escape }}
+                            {%- else -%}
+                              <div class="mega-menu__tile-placeholder"></div>
+                            {%- endif -%}
+                          </div>
+                          <div class="mega-menu__tile-title">{{ child_title | escape }}</div>
+                          {%- if child_subtitle != blank -%}
+                            <div class="mega-menu__tile-subtitle">{{ child_subtitle | escape }}</div>
+                          {%- endif -%}
+                        </a>
+                      {%- endfor -%}
+                    </div>
+                  {%- elsif has_promos -%}
                     <div class="mega-menu__promo">
                       {%- for block in section.blocks -%}
                         {%- if block.type == 'mega_promo' and block.settings.parent != blank -%}

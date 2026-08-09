@@ -106,9 +106,12 @@
     pointer-events: none;
   }
 
+  {% if has_link %}
+    .ai-mega-image-link-{{ ai_gen_id }}:hover .ai-mega-image-button-{{ ai_gen_id }},
+  {% endif %}
   .ai-mega-image-button-{{ ai_gen_id }}:hover {
-    background-color: {{ block.settings.button_hover_color }};
-    color: {{ block.settings.button_hover_text_color }};
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .ai-mega-image-overlay-{{ ai_gen_id }} {
