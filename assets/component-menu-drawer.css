@@ -263,7 +263,7 @@ details[open].menu-opening > .menu-drawer__submenu {
     left: 0;
     height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 0)));
     width: calc(100% - 4rem);
-    z-index: 101;
+    z-index: 999;
   }
 }
 
