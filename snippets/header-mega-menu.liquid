@@ -28,7 +28,7 @@
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content mega-menu__content--tiles-only color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
                 <div class="page-width mega-menu__inner">
@@ -59,10 +59,7 @@
                   -%}
 
                   {%- if has_tiles -%}
-                    <div class="mega-menu__header" role="heading" aria-level="2">
-                      <a href="{{ link.url }}" class="mega-menu__header-title link">{{ link.title | escape }}</a>
-                    </div>
-                    <div class="mega-menu__tiles">
+                    <div class="mega-menu__tiles mega-menu__tiles--full">
                       {%- for childlink in link.links -%}
                         {%- liquid
                           assign child_key = childlink.title | strip | downcase
@@ -119,7 +116,7 @@
                       {%- endfor -%}
                     </div>
                   {%- elsif has_promos -%}
-                    <div class="mega-menu__promo">
+                    <div class="mega-menu__promo mega-menu__promo--full">
                       {%- for block in section.blocks -%}
                         {%- if block.type == 'mega_promo' and block.settings.parent != blank -%}
                           {%- assign block_parent_key = block.settings.parent | strip | downcase -%}

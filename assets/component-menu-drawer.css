@@ -262,7 +262,8 @@ details[open].menu-opening > .menu-drawer__submenu {
     top: var(--header-bottom-position, 0);
     left: 0;
     height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 0)));
-    overscroll-behavior: contain;
+    width: calc(100% - 4rem);
+    z-index: 101;
   }
 }
 
