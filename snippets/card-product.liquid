@@ -215,23 +215,22 @@
           </div>
           <div class="card__badge {{ settings.badge_position }}">
             {%- liquid
-              assign current_available = card_product.available
+              assign badge_sold_out = card_product.available == false
               assign current_compare_at = card_product.compare_at_price
               assign current_price = card_product.price
               if card_variant
-                assign current_available = card_variant.available
                 assign current_compare_at = card_variant.compare_at_price
                 assign current_price = card_variant.price
               endif
             -%}
-            {%- if current_available == false -%}
+            {%- if badge_sold_out -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
               >
                 {{- 'products.product.sold_out' | t -}}
               </span>
-            {%- elsif current_compare_at > current_price and current_available -%}
+            {%- elsif current_compare_at > current_price and card_product.available -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
@@ -747,23 +746,22 @@
         {% endif %}
         <div class="card__badge {{ settings.badge_position }}">
           {%- liquid
-            assign current_available = card_product.available
+            assign badge_sold_out = card_product.available == false
             assign current_compare_at = card_product.compare_at_price
             assign current_price = card_product.price
             if card_variant
-              assign current_available = card_variant.available
               assign current_compare_at = card_variant.compare_at_price
               assign current_price = card_variant.price
             endif
           -%}
-          {%- if current_available == false -%}
+          {%- if badge_sold_out -%}
             <span
               id="Badge-{{ section_id }}-{{ card_product.id }}"
               class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
             >
               {{- 'products.product.sold_out' | t -}}
             </span>
-          {%- elsif current_compare_at > current_price and current_available -%}
+          {%- elsif current_compare_at > current_price and card_product.available -%}
             <span
               id="Badge-{{ section_id }}-{{ card_product.id }}"
               class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
