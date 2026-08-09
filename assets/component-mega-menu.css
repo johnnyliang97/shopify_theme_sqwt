@@ -90,8 +90,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 25%;
-  min-width: 250px;
+  width: 100%;
+  min-width: 0;
   margin-top: 0;
 }
 
@@ -111,6 +111,37 @@
 .mega-menu__promo-title {
   margin-top: 0.8rem;
   color: rgb(var(--color-foreground));
+}
+
+.mega-menu__content--tiles-only .mega-menu__inner {
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.mega-menu__header {
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+}
+
+.mega-menu__header-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.mega-menu__header-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  opacity: 0.9;
+}
+
+.mega-menu__content--tiles-only .mega-menu__tiles {
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.8rem 2.4rem;
 }
 
 .mega-menu__tiles {
