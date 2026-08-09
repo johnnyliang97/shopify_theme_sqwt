@@ -9,6 +9,9 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
+  {%- liquid
+    assign target_variant = product.selected_or_first_available_variant
+  -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
@@ -26,20 +29,36 @@
             assign picker_type = 'swatch'
           endif
         endif
+
+        assign current_option_value = ''
+        assign option_position_index = option.position | minus: 1
+        assign target_options = target_variant.options
+        if target_options.size > option_position_index
+          assign current_option_value = target_options[option_position_index]
+        endif
+
+        assign current_selected_swatch = null
+        for val in option.values
+          if val == current_option_value
+            assign current_selected_swatch = val.swatch
+            break
+          endif
+        endfor
       -%}
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
             {{ option.name }}:
             <span data-selected-value>
-              {{- option.selected_value -}}
+              {{- current_option_value -}}
             </span>
           </legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
             block: block,
-            picker_type: picker_type
+            picker_type: picker_type,
+            current_option_value: current_option_value
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
@@ -49,7 +68,8 @@
             product: product,
             option: option,
             block: block,
-            picker_type: picker_type
+            picker_type: picker_type,
+            current_option_value: current_option_value
           %}
         </fieldset>
       {%- else -%}
@@ -63,7 +83,7 @@
                 data-selected-value
                 class="dropdown-swatch"
               >
-                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+                {% render 'swatch', swatch: current_selected_swatch, shape: block.settings.swatch_shape %}
               </span>
             {%- endif -%}
             <select
@@ -76,7 +96,8 @@
                 product: product,
                 option: option,
                 block: block,
-                picker_type: picker_type
+                picker_type: picker_type,
+                current_option_value: current_option_value
               %}
             </select>
             <span class="svg-wrapper">
@@ -88,7 +109,7 @@
     {%- endfor -%}
 
     <script type="application/json" data-selected-variant>
-      {{ product.selected_or_first_available_variant | json }}
+      {{ target_variant | json }}
     </script>
   </variant-selects>
 {%- endunless -%}
