@@ -303,6 +303,259 @@
     <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
+  {%- liquid
+    assign default_variant = product.selected_or_first_available_variant
+
+    if product.variants.size > 1 and product.available
+      assign size_option_position = 0
+      assign size_option_name = ''
+      for opt in product.options_with_values
+        assign opt_name_downcase = opt.name | downcase
+        if opt_name_downcase == 'size'
+          assign size_option_position = opt.position
+          assign size_option_name = opt.name
+          break
+        endif
+      endfor
+
+      if size_option_position > 0
+        assign size_var_key = 'option' | append: size_option_position
+
+        assign has_selected_size = false
+        if default_variant.available == false
+          assign has_selected_size = true
+        endif
+
+        assign selected_color_size_filter = ''
+        assign selected_color_size_variants = ''
+
+        if product.options.size > 1
+          assign other_selected_values = ''
+          for opt in product.options_with_values
+            if opt.position != size_option_position
+              assign vkey = 'option' | append: opt.position
+              capture oth
+                {{ other_selected_values }}{{ default_variant[vkey] | default: '' }}|SEP|
+              endcapture
+              assign other_selected_values = oth
+            endif
+          endfor
+
+          assign color_group_variants = ''
+          for v in product.variants
+            assign v_other_values = ''
+            for opt in product.options_with_values
+              if opt.position != size_option_position
+                assign vkey = 'option' | append: opt.position
+                capture v_oth
+                  {{ v_other_values }}{{ v[vkey] }}|SEP|
+                endcapture
+                assign v_other_values = v_oth
+              endif
+            endfor
+            if v_other_values == other_selected_values
+              if color_group_variants == ''
+                assign color_group_variants = v
+              else
+                assign color_group_variants = color_group_variants | append: ',' | append: v
+              endif
+            endif
+          endfor
+
+          if color_group_variants != ''
+            assign selected_color_size_variants = color_group_variants | split: ','
+          endif
+        endif
+
+        if selected_color_size_variants == ''
+          assign selected_color_size_variants = product.variants
+        endif
+
+        assign numeric_sizes = ''
+        assign other_sizes = ''
+        assign smallest_numeric_variant = null
+        assign smallest_other_variant = null
+        assign smallest_in_stock = null
+        assign found_match = false
+
+        if selected_color_size_variants != '' and selected_color_size_variants.first != nil
+          for v in selected_color_size_variants
+            assign size_val = v[size_var_key] | default: '' | strip
+            assign num_size = size_val
+
+            assign cleaned = size_val | remove: ' ' | remove: 'XS' | remove: 'S' | remove: 'M' | remove: 'L' | remove: 'XL' | remove: 'XXL' | remove: 'XXXL' | remove: 'One Size' | remove: 'OS' | remove: 'Free Size'
+            assign is_numeric = false
+            assign cleaned_test = cleaned | times: 1
+            if cleaned == ''
+            else
+              assign cleaned_back = cleaned_test | append: ''
+              assign reduced = cleaned | remove: '.' | remove: '-' | plus: 0
+              assign reduced_str = reduced | append: ''
+              assign cleaned_only_digits = true
+              assign chars = cleaned | split: ''
+              assign count_numeric_chars = 0
+              for ch in chars
+                assign n = ch | plus: 0
+                assign n_str = n | append: ''
+                if n_str == ch
+                  assign count_numeric_chars = count_numeric_chars | plus: 1
+                endif
+              endfor
+              assign clean_len = cleaned | size
+              if count_numeric_chars == clean_len and clean_len > 0
+                assign is_numeric = true
+              endif
+            endif
+
+            if is_numeric
+              assign num_sizes_list = numeric_sizes | split: ','
+              assign existing_numeric = false
+              for n in num_sizes_list
+                assign n_str = n | append: ''
+                assign num_str = num_size | append: ''
+                if n_str == num_str
+                  assign existing_numeric = true
+                  break
+                endif
+              endfor
+              unless existing_numeric
+                if numeric_sizes == ''
+                  assign numeric_sizes = num_size
+                else
+                  assign numeric_sizes = numeric_sizes | append: ',' | append: num_size
+                endif
+              endunless
+            else
+              assign other_sizes_list = other_sizes | split: ','
+              assign existing_other = false
+              for s in other_sizes_list
+                assign s_str = s | append: ''
+                assign size_str = size_val | append: ''
+                if s_str == size_str
+                  assign existing_other = true
+                  break
+                endif
+              endfor
+              unless existing_other
+                if other_sizes == ''
+                  assign other_sizes = size_val
+                else
+                  assign other_sizes = other_sizes | append: ',' | append: size_val
+                endif
+              endunless
+            endif
+          endfor
+
+          if numeric_sizes != ''
+            assign numeric_sizes_list = numeric_sizes | split: ',' | sort
+            assign numeric_found = false
+            for sz in numeric_sizes_list
+              assign sz_num = sz | times: 1
+              assign picked = null
+              for v in selected_color_size_variants
+                assign size_val = v[size_var_key] | default: '' | strip
+                assign cleaned = size_val | remove: ' ' | remove: 'XS' | remove: 'S' | remove: 'M' | remove: 'L' | remove: 'XL' | remove: 'XXL' | remove: 'XXXL' | remove: 'One Size' | remove: 'OS' | remove: 'Free Size'
+                assign size_num = cleaned | times: 1
+                assign diff = sz_num | minus: size_num
+                assign abs_diff = diff
+                if diff < 0
+                  assign abs_diff = 0 | minus: diff
+                endif
+                assign epsilon = 0.0001
+                if abs_diff < epsilon
+                  assign picked = v
+                  break
+                endif
+              endfor
+              if picked != null and picked.available
+                assign smallest_numeric_variant = picked
+                assign numeric_found = true
+                break
+              endif
+            endfor
+            if numeric_found
+              assign smallest_in_stock = smallest_numeric_variant
+              assign found_match = true
+            endif
+          endif
+
+          unless found_match
+            assign size_rank_map = 'XXS:1,XS:2,S:3,M:4,L:5,XL:6,XXL:7,XXXL:8,One Size:9,OS:9,Free Size:9' | split: ','
+            assign lowest_rank = 999999
+            assign best_other_variant = null
+
+            assign other_sizes_list = other_sizes | split: ','
+            assign best_other_in_stock = null
+            assign lowest_rank_in_stock = 999999
+
+            for sz in other_sizes_list
+              assign rank = 999999
+              assign sz_strip = sz | strip
+              assign sz_up = sz_strip | upcase
+              for map_item in size_rank_map
+                assign parts = map_item | split: ':'
+                assign key = parts[0] | upcase
+                assign val = parts[1] | plus: 0
+                if sz_up == key
+                  assign rank = val
+                  break
+                endif
+              endfor
+
+              assign variant_for_size = null
+              for v in selected_color_size_variants
+                assign v_size = v[size_var_key] | default: '' | strip
+                assign v_size_up = v_size | upcase
+                assign sz_match = sz_strip | upcase
+                if v_size_up == sz_match
+                  assign variant_for_size = v
+                  break
+                endif
+              endfor
+
+              if variant_for_size != null
+                if rank < lowest_rank
+                  assign lowest_rank = rank
+                  assign best_other_variant = variant_for_size
+                endif
+                if variant_for_size.available and rank < lowest_rank_in_stock
+                  assign lowest_rank_in_stock = rank
+                  assign best_other_in_stock = variant_for_size
+                endif
+              endif
+            endfor
+
+            if best_other_in_stock != null
+              assign smallest_in_stock = best_other_in_stock
+              assign found_match = true
+            elsif best_other_variant != null and best_other_variant.available
+              assign smallest_in_stock = best_other_variant
+              assign found_match = true
+            endif
+          endunless
+
+          unless found_match
+            assign first_available_variant = null
+            for v in selected_color_size_variants
+              if v.available
+                assign first_available_variant = v
+                break
+              endif
+            endfor
+            if first_available_variant != null
+              assign smallest_in_stock = first_available_variant
+              assign found_match = true
+            endif
+          endunless
+        endif
+
+        if found_match and smallest_in_stock != null
+          assign default_variant = smallest_in_stock
+        endif
+      endif
+    endif
+  -%}
+
   {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
   {%- if first_3d_model -%}
     {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
