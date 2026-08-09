@@ -80,7 +80,40 @@
             "parent": "Tops",
             "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_19PM.jpg",
             "title": "Tops",
-            "link": "shopify://collections/sports-bras"
+            "link": "shopify://collections/tops"
+          }
+        },
+        "mega_child_promo_nx9AGK": {
+          "type": "mega_child_promo",
+          "name": "All Tops",
+          "settings": {
+            "parent": "Tops",
+            "child": "All Tops",
+            "image": "shopify://shop_images/IMG_2015.png",
+            "title": "",
+            "subtitle": ""
+          }
+        },
+        "mega_child_promo_ihJtWP": {
+          "type": "mega_child_promo",
+          "name": "Jackets",
+          "settings": {
+            "parent": "Tops",
+            "child": "Jackets",
+            "image": "shopify://shop_images/22E3C550-44F4-4CD4-9706-400BE215D5F8.png",
+            "title": "",
+            "subtitle": ""
+          }
+        },
+        "mega_child_promo_ptADPA": {
+          "type": "mega_child_promo",
+          "name": "Sports Bra",
+          "settings": {
+            "parent": "Tops",
+            "child": "Sports Bras",
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_39PM.jpg",
+            "title": "",
+            "subtitle": ""
           }
         },
         "mega_promo_mmVBAp": {
@@ -90,13 +123,52 @@
             "parent": "Bottoms",
             "image": "shopify://shop_images/IMG_1183_3bdb7da8-e79f-496f-a132-ded857b10c0c.jpg",
             "title": "Bottoms",
-            "link": "shopify://collections/shorts"
+            "link": "shopify://collections/bottoms"
+          }
+        },
+        "mega_child_promo_y9H7Rc": {
+          "type": "mega_child_promo",
+          "name": "All Bottoms",
+          "settings": {
+            "parent": "Bottoms",
+            "child": "All Bottoms",
+            "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_14PM.jpg",
+            "title": "",
+            "subtitle": ""
+          }
+        },
+        "mega_child_promo_XwqgNg": {
+          "type": "mega_child_promo",
+          "name": "Leggings",
+          "settings": {
+            "parent": "Bottoms",
+            "child": "Leggings",
+            "image": "shopify://shop_images/IMG_1483_251d2b23-7c42-4191-b802-12ea59d198ce.png",
+            "title": "",
+            "subtitle": ""
+          }
+        },
+        "mega_child_promo_nkHPtK": {
+          "type": "mega_child_promo",
+          "name": "Shorts",
+          "settings": {
+            "parent": "Bottoms",
+            "child": "Shorts",
+            "image": "shopify://shop_images/IMG_0605_a349d14a-7291-4504-92f6-fb03198f4789.jpg",
+            "title": "",
+            "subtitle": ""
           }
         }
       },
       "block_order": [
         "mega_promo_j6RfLi",
-        "mega_promo_mmVBAp"
+        "mega_child_promo_nx9AGK",
+        "mega_child_promo_ihJtWP",
+        "mega_child_promo_ptADPA",
+        "mega_promo_mmVBAp",
+        "mega_child_promo_y9H7Rc",
+        "mega_child_promo_XwqgNg",
+        "mega_child_promo_nkHPtK"
       ],
       "custom_css": [],
       "settings": {
