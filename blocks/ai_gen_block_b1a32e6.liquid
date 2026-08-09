@@ -1,0 +1,221 @@
+{% doc %}
+  @prompt
+    I want to put after pay image banner that fit on mobile view
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-afterpay-banner-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: 100%;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-afterpay-banner__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: {{ block.settings.spacing }}px;
+    flex-wrap: wrap;
+  }
+
+  .ai-afterpay-banner__image-wrapper-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .ai-afterpay-banner__image-{{ ai_gen_id }} {
+    width: {{ block.settings.image_width }}px;
+    height: auto;
+    display: block;
+  }
+
+  .ai-afterpay-banner__image-placeholder-{{ ai_gen_id }} {
+    width: {{ block.settings.image_width }}px;
+    height: 60px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .ai-afterpay-banner__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 40px;
+  }
+
+  .ai-afterpay-banner__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-afterpay-banner-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_vertical | times: 0.7 }}px {{ block.settings.padding_horizontal | times: 0.7 }}px;
+    }
+
+    .ai-afterpay-banner__container-{{ ai_gen_id }} {
+      gap: {{ block.settings.spacing | times: 0.7 }}px;
+    }
+
+    .ai-afterpay-banner__image-{{ ai_gen_id }} {
+      width: {{ block.settings.image_width | times: 0.8 }}px;
+    }
+
+    .ai-afterpay-banner__image-placeholder-{{ ai_gen_id }} {
+      width: {{ block.settings.image_width | times: 0.8 }}px;
+      height: 48px;
+    }
+
+    .ai-afterpay-banner__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-afterpay-banner-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-afterpay-banner__container-{{ ai_gen_id }}">
+    <div class="ai-afterpay-banner__image-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.afterpay_image %}
+        <img
+          src="{{ block.settings.afterpay_image | image_url: width: 400 }}"
+          alt="{{ block.settings.afterpay_image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image_width }}"
+          height="auto"
+          class="ai-afterpay-banner__image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-afterpay-banner__image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </div>
+    {% if block.settings.banner_text != blank %}
+      <p class="ai-afterpay-banner__text-{{ ai_gen_id }}">{{ block.settings.banner_text }}</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Afterpay banner",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "afterpay_image",
+      "label": "Afterpay logo"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "min": 60,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "Buy now, pay later with Afterpay"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum width",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "label": "Spacing between elements",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f0ffde"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Afterpay banner"
+    }
+  ]
+}
+{% endschema %}
