@@ -215,7 +215,10 @@
           </div>
           <div class="card__badge {{ settings.badge_position }}">
             {%- liquid
-              assign badge_sold_out = card_product.available == false
+              assign badge_sold_out = false
+              if card_product.available == false
+                assign badge_sold_out = true
+              endif
               assign current_compare_at = card_product.compare_at_price
               assign current_price = card_product.price
               if card_variant
@@ -746,7 +749,10 @@
         {% endif %}
         <div class="card__badge {{ settings.badge_position }}">
           {%- liquid
-            assign badge_sold_out = card_product.available == false
+            assign badge_sold_out = false
+            if card_product.available == false
+              assign badge_sold_out = true
+            endif
             assign current_compare_at = card_product.compare_at_price
             assign current_price = card_product.price
             if card_variant
