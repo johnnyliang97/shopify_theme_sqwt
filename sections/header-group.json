@@ -120,7 +120,7 @@
           "name": "Sports Bra",
           "settings": {
             "parent": "Tops",
-            "parent_link": "",
+            "parent_link": "shopify://collections/tops",
             "parent_index": 0,
             "child": "Sports Bras",
             "child_link": "shopify://collections/sports-bras",
