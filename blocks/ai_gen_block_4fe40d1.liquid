@@ -12,7 +12,6 @@
   assign offset_y_desktop = block.settings.offset_y_desktop | default: 40
   assign offset_x_mobile = block.settings.offset_x_mobile | default: 0
   assign offset_y_mobile = block.settings.offset_y_mobile | default: 40
-  assign content_container_type = block.settings.content_container_type | default: 'full_width'
   assign has_link = false
   if block.settings.button_link != blank
     assign has_link = true
@@ -49,22 +48,6 @@
     width: 100%;
     height: 100%;
   }
-
-  .ai-mega-image-frame-{{ ai_gen_id }} {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    pointer-events: none;
-  }
-
-  {% if content_container_type == 'page_width' %}
-    .ai-mega-image-frame-{{ ai_gen_id }} {
-      max-width: var(--page-width);
-      padding: 0 1.5rem;
-    }
-  {% endif %}
 
   .ai-mega-image-desktop-{{ ai_gen_id }},
   .ai-mega-image-mobile-{{ ai_gen_id }} {
@@ -121,13 +104,8 @@
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    pointer-events: none;
   }
-
-  {% if has_link %}
-    .ai-mega-image-button-{{ ai_gen_id }} {
-      pointer-events: none;
-    }
-  {% endif %}
 
   {% if has_link %}
     .ai-mega-image-link-{{ ai_gen_id }}:hover .ai-mega-image-button-{{ ai_gen_id }},
@@ -422,32 +400,30 @@
           </div>
         {% endif %}
 
-        <div class="ai-mega-image-frame-{{ ai_gen_id }}">
-          {% if block.settings.header_text != blank or block.settings.subtext_text != blank %}
-            <div class="ai-mega-image-overlay-{{ ai_gen_id }}">
-              {% if block.settings.header_text != blank %}
-                <div class="ai-mega-image-header-{{ ai_gen_id }}">{{ block.settings.header_text }}</div>
-              {% endif %}
-              {% if block.settings.subtext_text != blank %}
-                <div class="ai-mega-image-subtext-{{ ai_gen_id }}">{{ block.settings.subtext_text }}</div>
-              {% endif %}
-            </div>
-          {% endif %}
+        {% if block.settings.header_text != blank or block.settings.subtext_text != blank %}
+          <div class="ai-mega-image-overlay-{{ ai_gen_id }}">
+            {% if block.settings.header_text != blank %}
+              <div class="ai-mega-image-header-{{ ai_gen_id }}">{{ block.settings.header_text }}</div>
+            {% endif %}
+            {% if block.settings.subtext_text != blank %}
+              <div class="ai-mega-image-subtext-{{ ai_gen_id }}">{{ block.settings.subtext_text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
 
-          {% if block.settings.button_text != blank %}
-            <div class="ai-mega-image-content-{{ ai_gen_id }}">
-              {% if has_link %}
-                <span class="ai-mega-image-button-{{ ai_gen_id }}" role="presentation">
-                  {{ block.settings.button_text }}
-                </span>
-              {% else %}
-                <button type="button" class="ai-mega-image-button-{{ ai_gen_id }}">
-                  {{ block.settings.button_text }}
-                </button>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
+        {% if block.settings.button_text != blank %}
+          <div class="ai-mega-image-content-{{ ai_gen_id }}">
+            {% if has_link %}
+              <span class="ai-mega-image-button-{{ ai_gen_id }}" role="presentation">
+                {{ block.settings.button_text }}
+              </span>
+            {% else %}
+              <button type="button" class="ai-mega-image-button-{{ ai_gen_id }}">
+                {{ block.settings.button_text }}
+              </button>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
   {% if has_link %}
     </a>
@@ -495,17 +471,6 @@
       "unit": "px",
       "label": "Mobile height",
       "default": 500
-    },
-    {
-      "type": "select",
-      "id": "content_container_type",
-      "label": "Content container",
-      "options": [
-        { "value": "full_width", "label": "Full width" },
-        { "value": "page_width", "label": "Page width" }
-      ],
-      "default": "full_width",
-      "info": "Constrains text + button area to the standard page-width content gutter (except the image, which always stays full bleed)."
     },
     {
       "type": "select",
