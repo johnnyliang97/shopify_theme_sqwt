@@ -1085,7 +1085,6 @@ class VariantSelects extends HTMLElement {
   connectedCallback() {
     this.addEventListener('change', (event) => {
       const target = this.getInputForEventTarget(event.target);
-      if (target && (target.disabled || target.getAttribute('aria-disabled') === 'true')) return;
       this.updateSelectionMetadata(event);
 
       publish(PUB_SUB_EVENTS.optionValueSelectionChange, {
@@ -1096,20 +1095,6 @@ class VariantSelects extends HTMLElement {
         },
       });
     });
-
-    this.addEventListener('click', (event) => {
-      const input =
-        event.target.tagName === 'INPUT' && event.target.type === 'radio'
-          ? event.target
-          : event.target.closest?.('label')?.getAttribute?.('for')
-          ? this.querySelector(`#${CSS.escape(event.target.closest('label').getAttribute('for'))}`)
-          : null;
-      if (!input) return;
-      if (input.disabled || input.classList.contains('disabled') || input.getAttribute('aria-disabled') === 'true') {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    }, true);
   }
 
   updateSelectionMetadata({ target }) {

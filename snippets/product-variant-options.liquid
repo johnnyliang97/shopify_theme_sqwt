@@ -71,7 +71,6 @@
       swatch: value.swatch,
       product_form_id: product_form_id,
       checked: value.selected,
-      disabled: option_disabled,
       visually_disabled: option_disabled,
       shape: block.settings.swatch_shape,
       help_text: help_text,
@@ -88,8 +87,6 @@
         checked
       {% endif %}
       {% if option_disabled %}
-        disabled
-        aria-disabled="true"
         class="disabled"
       {% endif %}
       {{ input_dataset }}
@@ -104,10 +101,6 @@
       value="{{ value | escape }}"
       {% if value.selected %}
         selected="selected"
-      {% endif %}
-      {% if option_disabled %}
-        disabled
-        aria-disabled="true"
       {% endif %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}
         data-option-swatch-value="{{ swatch_value }}"

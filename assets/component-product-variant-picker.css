@@ -112,15 +112,6 @@ variant-selects {
   background-color: rgba(var(--color-background), 0.3);
 }
 
-.product-form__input input[type='radio']:disabled + label,
-.product-form__input--pill input[type='radio']:disabled + label,
-.product-form__input--pill input[type='radio'].disabled + label,
-.product-form__input select option:disabled,
-.product-form__input--swatch .swatch-input__input:disabled + .swatch-input__label {
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
 .product-form__input--pill input[type='radio']:disabled + label,
 .product-form__input--pill input[type='radio'].disabled + label {
   border-color: rgba(var(--color-foreground), 0.1);
