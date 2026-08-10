@@ -78,6 +78,8 @@
           "name": "Tops",
           "settings": {
             "parent": "Tops",
+            "parent_link": "",
+            "parent_index": 0,
             "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_19PM.jpg",
             "title": "Tops",
             "link": "shopify://collections/tops"
@@ -88,7 +90,11 @@
           "name": "All Tops",
           "settings": {
             "parent": "Tops",
+            "parent_link": "shopify://collections/tops",
+            "parent_index": 0,
             "child": "All Tops",
+            "child_link": "shopify://collections/tops",
+            "child_index": 0,
             "image": "shopify://shop_images/IMG_2015.png",
             "title": "",
             "subtitle": ""
@@ -99,7 +105,11 @@
           "name": "Jackets",
           "settings": {
             "parent": "Tops",
+            "parent_link": "shopify://collections/tops",
+            "parent_index": 0,
             "child": "Jackets",
+            "child_link": "shopify://collections/jackets",
+            "child_index": 0,
             "image": "shopify://shop_images/22E3C550-44F4-4CD4-9706-400BE215D5F8.png",
             "title": "",
             "subtitle": ""
@@ -110,7 +120,11 @@
           "name": "Sports Bra",
           "settings": {
             "parent": "Tops",
+            "parent_link": "",
+            "parent_index": 0,
             "child": "Sports Bras",
+            "child_link": "shopify://collections/sports-bras",
+            "child_index": 0,
             "image": "shopify://shop_images/Generated_Image_November_27_2025_-_8_39PM.jpg",
             "title": "",
             "subtitle": ""
@@ -121,6 +135,8 @@
           "name": "Bottoms",
           "settings": {
             "parent": "Bottoms",
+            "parent_link": "",
+            "parent_index": 0,
             "image": "shopify://shop_images/IMG_1183_3bdb7da8-e79f-496f-a132-ded857b10c0c.jpg",
             "title": "Bottoms",
             "link": "shopify://collections/bottoms"
@@ -131,7 +147,11 @@
           "name": "All Bottoms",
           "settings": {
             "parent": "Bottoms",
+            "parent_link": "shopify://collections/bottoms",
+            "parent_index": 0,
             "child": "All Bottoms",
+            "child_link": "shopify://collections/bottoms",
+            "child_index": 0,
             "image": "shopify://shop_images/Generated_Image_November_27_2025_-_9_14PM.jpg",
             "title": "",
             "subtitle": ""
@@ -142,7 +162,11 @@
           "name": "Leggings",
           "settings": {
             "parent": "Bottoms",
+            "parent_link": "shopify://collections/bottoms",
+            "parent_index": 0,
             "child": "Leggings",
+            "child_link": "shopify://collections/leggings",
+            "child_index": 0,
             "image": "shopify://shop_images/IMG_1483_251d2b23-7c42-4191-b802-12ea59d198ce.png",
             "title": "",
             "subtitle": ""
@@ -153,7 +177,11 @@
           "name": "Shorts",
           "settings": {
             "parent": "Bottoms",
+            "parent_link": "shopify://collections/bottoms",
+            "parent_index": 0,
             "child": "Shorts",
+            "child_link": "shopify://collections/shorts",
+            "child_index": 0,
             "image": "shopify://shop_images/IMG_0605_a349d14a-7291-4504-92f6-fb03198f4789.jpg",
             "title": "",
             "subtitle": ""
