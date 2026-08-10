@@ -6,7 +6,6 @@
   - option: {Object} current product_option object.
   - block: {Object} block object.
   - picker_type: {String} type of picker to dispay
-  - current_option_value: {String} explicit option value to mark selected (overrides value.selected when provided)
 
 
   Usage:
@@ -37,19 +36,6 @@
     assign option_disabled = true
     if value.available
       assign option_disabled = false
-    endif
-
-    assign value_is_selected = false
-    if current_option_value != blank
-      assign sanitized_current = current_option_value | strip
-      assign sanitized_value = value | strip
-      if sanitized_current == sanitized_value
-        assign value_is_selected = true
-      endif
-    else
-      if value.selected
-        assign value_is_selected = true
-      endif
     endif
   -%}
 
@@ -84,7 +70,8 @@
       value: value | escape,
       swatch: value.swatch,
       product_form_id: product_form_id,
-      checked: value_is_selected,
+      checked: value.selected,
+      disabled: option_disabled,
       visually_disabled: option_disabled,
       shape: block.settings.swatch_shape,
       help_text: help_text,
@@ -97,10 +84,12 @@
       name="{{ input_name | escape }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
-      {% if value_is_selected %}
+      {% if value.selected %}
         checked
       {% endif %}
       {% if option_disabled %}
+        disabled
+        aria-disabled="true"
         class="disabled"
       {% endif %}
       {{ input_dataset }}
@@ -113,8 +102,12 @@
     <option
       id="{{ input_id }}"
       value="{{ value | escape }}"
-      {% if value_is_selected %}
+      {% if value.selected %}
         selected="selected"
+      {% endif %}
+      {% if option_disabled %}
+        disabled
+        aria-disabled="true"
       {% endif %}
       {% if swatch_value and picker_type == 'swatch_dropdown' %}
         data-option-swatch-value="{{ swatch_value }}"
