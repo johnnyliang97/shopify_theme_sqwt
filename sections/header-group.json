@@ -14,13 +14,6 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_y3w7Ra": {
-          "type": "announcement",
-          "settings": {
-            "text": "Free shipping on orders over $100",
-            "link": ""
-          }
-        },
         "announcement_JXwgFp": {
           "type": "announcement",
           "settings": {
@@ -44,7 +37,6 @@
         }
       },
       "block_order": [
-        "announcement_y3w7Ra",
         "announcement_JXwgFp",
         "announcement_6peRGK",
         "announcement-bar-0"
