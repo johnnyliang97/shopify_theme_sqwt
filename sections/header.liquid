@@ -694,6 +694,21 @@
           "label": "Top-level menu item title"
         },
         {
+          "type": "url",
+          "id": "parent_link",
+          "label": "Top-level menu item link (optional, used for multilingual matching)"
+        },
+        {
+          "type": "range",
+          "id": "parent_index",
+          "label": "Top-level menu order (1 = first item, optional fallback)",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "default": 0,
+          "info": "Leave 0 to disable index fallback. Overrides title/link when set."
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "Image"
@@ -720,9 +735,39 @@
           "label": "Top-level menu item title"
         },
         {
+          "type": "url",
+          "id": "parent_link",
+          "label": "Top-level menu item link (optional, multilingual matching)"
+        },
+        {
+          "type": "range",
+          "id": "parent_index",
+          "label": "Top-level menu order (1 = first item, optional fallback)",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "default": 0,
+          "info": "Leave 0 to disable index fallback. Overrides title/link when set."
+        },
+        {
           "type": "text",
           "id": "child",
           "label": "Child menu item title (matching link label)"
+        },
+        {
+          "type": "url",
+          "id": "child_link",
+          "label": "Child menu item link (optional, multilingual matching)"
+        },
+        {
+          "type": "range",
+          "id": "child_index",
+          "label": "Child order (1 = first sub-item, optional fallback)",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 0,
+          "info": "Leave 0 to disable index fallback. Overrides title/link when set."
         },
         {
           "type": "image_picker",

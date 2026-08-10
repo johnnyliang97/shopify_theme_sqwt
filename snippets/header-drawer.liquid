@@ -117,21 +117,61 @@
                             {%- endfor -%}
                           </ul>
                           {%- assign has_promos = false -%}
-                          {%- assign link_key = link.title | strip | downcase -%}
+                          {%- assign link_index = forloop.index -%}
                           {%- for block in section.blocks -%}
-                            {%- if block.type == 'mega_promo' and block.settings.parent != blank -%}
-                              {%- assign block_parent_key = block.settings.parent | strip | downcase -%}
-                              {%- if block_parent_key == link_key -%}
-                                {%- assign has_promos = true -%}
-                              {%- endif -%}
+                            {%- if block.type == 'mega_promo' -%}
+                              {%- liquid
+                                assign match_parent = false
+                                assign bi = block.settings.parent_index | plus: 0
+                                if bi > 0 and bi == link_index
+                                  assign match_parent = true
+                                elsif block.settings.parent_link != blank
+                                  assign block_url = block.settings.parent_link | strip
+                                  if block_url != blank and block_url == link.url
+                                    assign match_parent = true
+                                  endif
+                                endif
+                                unless match_parent
+                                  if block.settings.parent != blank
+                                    assign block_parent_key = block.settings.parent | strip | downcase
+                                    assign link_key = link.title | strip | downcase
+                                    if block_parent_key == link_key
+                                      assign match_parent = true
+                                    endif
+                                  endif
+                                endunless
+                                if match_parent
+                                  assign has_promos = true
+                                endif
+                              -%}
                             {%- endif -%}
                           {%- endfor -%}
                           {%- if has_promos -%}
                             <div class="menu-drawer__promo">
                               {%- for block in section.blocks -%}
-                                {%- if block.type == 'mega_promo' and block.settings.parent != blank -%}
-                                  {%- assign block_parent_key = block.settings.parent | strip | downcase -%}
-                                  {%- if block_parent_key == link_key -%}
+                                {%- if block.type == 'mega_promo' -%}
+                                  {%- liquid
+                                    assign match_parent = false
+                                    assign bi = block.settings.parent_index | plus: 0
+                                    if bi > 0 and bi == link_index
+                                      assign match_parent = true
+                                    elsif block.settings.parent_link != blank
+                                      assign block_url = block.settings.parent_link | strip
+                                      if block_url != blank and block_url == link.url
+                                        assign match_parent = true
+                                      endif
+                                    endif
+                                    unless match_parent
+                                      if block.settings.parent != blank
+                                        assign block_parent_key = block.settings.parent | strip | downcase
+                                        assign link_key = link.title | strip | downcase
+                                        if block_parent_key == link_key
+                                          assign match_parent = true
+                                        endif
+                                      endif
+                                    endunless
+                                  -%}
+                                  {%- if match_parent -%}
                                     {%- if block.settings.link != blank -%}
                                       <a href="{{ block.settings.link }}" class="menu-drawer__promo-item">
                                     {%- else -%}
